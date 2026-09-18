@@ -1,0 +1,319 @@
+{
+  "lastUpdated": "2026-09-15",
+  "lastUpdatedLabel": "2026-09-15（人工查證快照）",
+  "competitors": [
+    {
+      "id": "apmic",
+      "name": "APMIC 亞太智能機器",
+      "grp": "service",
+      "pos": "微調／私有化部署，鎖定政府與金融客戶",
+      "metric": "700 萬美元 A 輪 · PrivStation 2 預計 2026 Q4 上市",
+      "marginPct": null,
+      "broadAiPlatform": false
+    },
+    {
+      "id": "twsc",
+      "name": "台智雲 TWSC",
+      "grp": "service",
+      "pos": "華碩集團全棧算力服務商，主權 AI 基礎建設",
+      "metric": "2025 營收 25.83 億（+198.5%）· 毛利率 10.47%",
+      "marginPct": 10.47,
+      "broadAiPlatform": true
+    },
+    {
+      "id": "systex",
+      "name": "精誠資訊 SYSTEX",
+      "grp": "service",
+      "pos": "老牌 SI／VAD 經銷商，正擴大全球 IT 服務",
+      "metric": "營收 439.7 億 · 毛利率 21.9%",
+      "marginPct": 21.9,
+      "broadAiPlatform": false
+    },
+    {
+      "id": "ecloudvalley",
+      "name": "伊雲谷 eCloudvalley",
+      "grp": "service",
+      "pos": "AWS／GCP／Anthropic 雲代理商，集團化 AI portfolio",
+      "metric": "5 月營收 10.28 億 · 已掛牌上市",
+      "marginPct": null,
+      "broadAiPlatform": true
+    },
+    {
+      "id": "bohong",
+      "name": "博弘雲端 · 宏庭科技",
+      "grp": "service",
+      "pos": "AWS／GCP／Azure／Alibaba 大中華區最高等級代理商",
+      "metric": "2026/07 成為 OpenAI Select Partner",
+      "marginPct": null,
+      "broadAiPlatform": false
+    },
+    {
+      "id": "keypo",
+      "name": "Keypo · 大數據",
+      "grp": "marketing",
+      "pos": "AI 輿情分析平台，跨足企業 KYC",
+      "metric": "海外布局台港日中東 · 籌備 IPO",
+      "marginPct": null,
+      "geoLive": true,
+      "agentApiLive": false,
+      "japanScaled": false
+    },
+    {
+      "id": "largitdata",
+      "name": "大數軟體 LargitData",
+      "grp": "marketing",
+      "pos": "輿情分析／企業情報 AI 平台，核心產品 InfoMiner",
+      "metric": "首批取得 NVIDIA 超級電腦算力資源業者之一",
+      "marginPct": null,
+      "geoLive": false,
+      "agentApiLive": false,
+      "japanScaled": false
+    },
+    {
+      "id": "opview",
+      "name": "OpView · 意藍資訊",
+      "grp": "marketing",
+      "pos": "台灣最全面輿情系統，已上市（6925）",
+      "metric": "OpView Agent Tools API 已上線",
+      "marginPct": null,
+      "geoLive": false,
+      "agentApiLive": true,
+      "japanScaled": false
+    },
+    {
+      "id": "app91",
+      "name": "91APP",
+      "grp": "marketing",
+      "pos": "電商系統整合派，AI SEO 內建電商後台",
+      "metric": "8 月營收 1.81 億（+30.4%）· 毛利率 74.2%",
+      "marginPct": 74.2,
+      "geoLive": false,
+      "agentApiLive": true,
+      "japanScaled": false
+    },
+    {
+      "id": "awoo",
+      "name": "阿物 awoo",
+      "grp": "marketing",
+      "pos": "亞洲 AI 行銷科技領導品牌，GEO／SEO",
+      "metric": "服務全球逾 16,000 家企業",
+      "marginPct": null,
+      "geoLive": true,
+      "agentApiLive": false,
+      "japanScaled": true
+    },
+    {
+      "id": "appier",
+      "name": "Appier",
+      "grp": "marketing",
+      "pos": "東證上市 AI 獨角獸，Agentic AI SaaS",
+      "metric": "2026 Q2 毛利率 60.1% · 市值約 9.1 億美元",
+      "marginPct": 60.1,
+      "geoLive": false,
+      "agentApiLive": true,
+      "japanScaled": false
+    }
+  ],
+  "signals": [
+    {
+      "company": "apmic",
+      "date": "2026-03-12",
+      "cat": "cap",
+      "title": "完成 700 萬美元 A 輪，AIPO 領投、趨勢科技跟投",
+      "url": "https://newtalk.tw/news/view/2026-03-12/1023984",
+      "note": "iKala AI Service 非轉售部分年化僅約 3,100 萬，APMIC 的募資規模與客群持續壓過我們。"
+    },
+    {
+      "company": "apmic",
+      "date": "2026-07-02",
+      "cat": "prod",
+      "title": "發表 PrivStation 2，宣稱 30 天完成企業 AI 平台部署，支援 NVIDIA Blackwell／Vera Rubin",
+      "url": "https://technews.tw/2026/07/02/apmic-privstation-day-2026/",
+      "note": "私有化部署速度是他們的主打賣點；對抗策略仍是具名客戶 ROI，不是比部署天數或參數。"
+    },
+    {
+      "company": "apmic",
+      "date": "2026",
+      "cat": "partner",
+      "title": "黃仁勳於 COMPUTEX 三度公開點名，Google、NEC 主動接觸",
+      "url": "https://www.bnext.com.tw/article/82763/apmic-ai",
+      "note": "聲量持續壓過 iKala AI Service；敘事上把微調收進「模型」層一項能力，不正面比聲量。"
+    },
+    {
+      "company": "twsc",
+      "date": "2026-05-29",
+      "cat": "cap",
+      "title": "登錄興櫃，2025 年營收 25.83 億元（+198.5%）、轉盈 EPS 4.14 元",
+      "url": "https://money.udn.com/money/amp/story/5612/9529118",
+      "note": "毛利率僅 10.47%——證明硬體交付模式的天花板，也是 iKala AI Service 定位模型與部署層、不做硬體交付的理由。"
+    },
+    {
+      "company": "twsc",
+      "date": "2026",
+      "cat": "other",
+      "title": "得標國網中心「2026 年人工智慧高速計算大型通用主機建置採購案」",
+      "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=3c7845b8-4336-464b-9a19-f748747cfe9c",
+      "note": "持續拿下政府主權 AI 大案，AI Service 想卡進模型與部署層，時間窗口在收窄。"
+    },
+    {
+      "company": "twsc",
+      "date": "2026-05-22",
+      "cat": "prod",
+      "title": "推出 AFS Suite，全棧式主權 AI 平台涵蓋算力／資料／模型／Agent 應用",
+      "url": "https://finance.technews.tw/2026/05/22/teai-afs-suite/",
+      "note": "跟 iKala 架構圖的 Infra/Data/Model/Tool 四層幾乎一一對應，而且比伊雲谷的同類發表早了近 4 個月。"
+    },
+    {
+      "company": "systex",
+      "date": "2026-02-02",
+      "cat": "partner",
+      "title": "與日本伊藤忠商事（ITOCHU）建立策略聯盟",
+      "url": "https://tw.systex.com/news/news-2026/",
+      "note": "精誠打入日本大型商社通路，跟 iKala 日本布局鎖定的通路夥伴屬同一層級。"
+    },
+    {
+      "company": "systex",
+      "date": "2026-04-21",
+      "cat": "exp",
+      "title": "啟動「全球 IT 服務」，整合 24 國通路夥伴、200 家原廠、250 位東南亞在地員工",
+      "url": "https://tw.systex.com/news/news-2026/",
+      "note": "規模近 iKala 20 倍，東南亞人力布局已成規模，非拓展初期。"
+    },
+    {
+      "company": "systex",
+      "date": "2026-08-27",
+      "cat": "lead",
+      "title": "台信電訊公開收購精誠股份案，審議委員會認定條件具公平性",
+      "url": "https://tw.systex.com/nr_260901/",
+      "note": "經營權可能出現變化，留意對台灣雲代理／SI 市場格局的連動影響。"
+    },
+    {
+      "company": "ecloudvalley",
+      "date": "2026-03-24",
+      "cat": "exp",
+      "title": "正式宣布進軍日本市場",
+      "url": "https://www.ecloudvalley.com/tw/newsroom/officially-enters-japanese-market",
+      "note": "雲代理商也已進場日本，跟 iKala Japan 的通路策略正面相撞，需要加快既有三個夥伴的綁定。"
+    },
+    {
+      "company": "ecloudvalley",
+      "date": "2026-09-11",
+      "cat": "prod",
+      "title": "舉辦「360 全方位 AI 生態系發布會」，發表涵蓋 Agent／資料／模型評測／治理／資安到 Edge AI 的 Enterprise AI Portfolio",
+      "url": "https://news.nextapple.com/finance/20260911/393EAC78E1C96AAECA5BB6F5E8BCA923",
+      "note": "產品範疇幾乎跟 iKala 架構圖的 Infra／Data／Model／Tool 四層重疊，而且比我們早發表出來。"
+    },
+    {
+      "company": "bohong",
+      "date": "2026-07-20",
+      "cat": "partner",
+      "title": "博弘雲端成為 OpenAI Select Partner",
+      "url": "",
+      "note": "原始連結待補；博弘／宏庭已是 AWS／GCP／Azure／Alibaba 大中華區最高等級代理商，現又拿下 OpenAI，生態綁定廣度超越 iKala 目前的 Google Cloud 單一夥伴關係。"
+    },
+    {
+      "company": "bohong",
+      "date": "2026-08-12",
+      "cat": "lead",
+      "title": "公告總經理異動，陳仲儒接任（9/7 生效）",
+      "url": "https://news.cnyes.com/news/id/6574160",
+      "note": "剛拿下 OpenAI Select Partner 就換上新任總經理，訊號指向加速 AI 轉型；持續觀察多雲＋OpenAI 生態綁定是否加碼。"
+    },
+    {
+      "company": "keypo",
+      "date": "2026",
+      "cat": "prod",
+      "title": "KEYPO 新增 AI 聆聽功能，分析品牌在 ChatGPT／Gemini 中的曝光與評價，首度登上 2026 LEAP East",
+      "url": "https://money.udn.com/money/story/11162/9617280",
+      "note": "這正是 Kuroma 在做的 GEO／AI 能見度分析，Keypo 已把它做成既有輿情平台的附加功能上市。"
+    },
+    {
+      "company": "keypo",
+      "date": "2026",
+      "cat": "exp",
+      "title": "海外布局擴及香港、日本、中東，為 IPO 公開發行累積能量",
+      "url": "https://dailyview.tw/popular/detail/33542",
+      "note": "對手也在往日本擴張，且已有明確 IPO 時程。"
+    },
+    {
+      "company": "largitdata",
+      "date": "2026",
+      "cat": "prod",
+      "title": "推出 AI 影音內容分析雲服務，24/7 監控 TikTok／YouTube 並支援即時關鍵字通報",
+      "url": "https://www.largitdata.com/latest-news/2",
+      "note": "輿情／社群監測產品持續迭代到影音層。"
+    },
+    {
+      "company": "largitdata",
+      "date": "2026",
+      "cat": "partner",
+      "title": "成為首批取得 NVIDIA 超級電腦算力資源的業者之一",
+      "url": "https://www.largitdata.com/latest-news/2",
+      "note": "算力取得速度值得留意，是否轉化為模型能力仍待觀察。"
+    },
+    {
+      "company": "opview",
+      "date": "2026",
+      "cat": "prod",
+      "title": "正式推出 OpView Agent Tools API，把市場情報轉為 AI 可直接調用的工具，可串接 OpenAI Codex／Claude",
+      "url": "https://fc.bnext.com.tw/articles/view/4769",
+      "note": "直接撞上 iKala 規劃中的 Datahub＋MCP，時間窗口比預期短，SWOT 裡列為最高優先關注訊號。"
+    },
+    {
+      "company": "opview",
+      "date": "2026-07-30",
+      "cat": "prod",
+      "title": "參展 AI WAVE SHOW 2026，主打「Agent Ready」企業大腦四大解決方案",
+      "url": "https://www.chinatimes.com/realtimenews/20260730001977-260410",
+      "note": "敘事語言（Agent Ready、可信知識庫）跟 iKala 的 One iKala 敘事高度相似。"
+    },
+    {
+      "company": "app91",
+      "date": "2026",
+      "cat": "prod",
+      "title": "正式發表企業級 AI Agent 平台「AgentOne」，導入零售與餐飲商務場景",
+      "url": "https://91app.com/blog/newtechlaunchweek-00/",
+      "note": "從電商系統切入 agent，跟 AI Service 想講的「模型與部署層」敘事重疊。"
+    },
+    {
+      "company": "app91",
+      "date": "2026-09",
+      "cat": "cap",
+      "title": "8 月合併營收 1.81 億元（+30.42%），累計 1–8 月 14.64 億元（+32.14%）",
+      "url": "https://91app.com/blog/91app-202609-2026bic/",
+      "note": "毛利率 74.2%（系統鎖定、加購邊際成本趨近零）遠高於 iKala 非轉售毛利率目標。"
+    },
+    {
+      "company": "awoo",
+      "date": "2026-03",
+      "cat": "prod",
+      "title": "推出 awoo GEO Suite，協助品牌掌握在 AI 平台上的能見度",
+      "url": "https://www.awoo.ai/ja/latest-news/",
+      "note": "直接對標 Kuroma 的 GEO 核心功能，而且已經產品化上市。"
+    },
+    {
+      "company": "awoo",
+      "date": "2026",
+      "cat": "exp",
+      "title": "連兩年獲日本 Fashion EC Awards「Support Award」，鞏固日本 MarTech 領先地位",
+      "url": "https://www.awoo.ai/ja/company/",
+      "note": "已在 iKala 鎖定的日本市場做出規模化成功，是最值得研究的對照組。"
+    },
+    {
+      "company": "appier",
+      "date": "2026-05-13",
+      "cat": "cap",
+      "title": "Q1 營收 121 億日圓創新高（+29.4% YoY），毛利率攀至 53.9%",
+      "url": "https://www.prnewswire.com/news-releases/appier-beats-q1-revenue-and-profit-targets-with-agentic-ai-driven-growth-302770722.html",
+      "note": "飛輪邏輯跟 iKala 幾乎一樣，但已被財務數字證明——這正是 iKala 想爭取的估值位置。"
+    },
+    {
+      "company": "appier",
+      "date": "2026-08-14",
+      "cat": "cap",
+      "title": "Q2 營收 129 億日圓再創新高（+24.6% YoY），毛利率首度突破 60.1%",
+      "url": "https://www.digitimes.com/news/a20260814PD202/revenue-appier-outlook-business-development.html",
+      "note": "毛利率連兩季創高，證明 agentic AI 飛輪在財務上站得住腳。"
+    }
+  ]
+}

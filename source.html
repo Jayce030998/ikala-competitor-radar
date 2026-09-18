@@ -1,0 +1,1404 @@
+<title>競品雷達</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --ground:#F7F9FD;
+    --surface:#FFFFFF;
+    --surface-2:#EEF2FA;
+    --ink:#0B1220;
+    --ink-soft:#5B6B85;
+    --ink-faint:#93A0B8;
+    --line:#E2E8F5;
+    --line-soft:#EDF1FA;
+
+    --accent:#2563EB;         /* iKala Blue — primary */
+    --accent-deep:#153E90;    /* text-on-wash */
+    --accent-wash:#E7EFFE;
+
+    --success:#16A34A;        /* 正向／上線／已達成狀態，語義色，跟主色分開 */
+    --success-wash:#E7F7ED;
+
+    --hero-1:#E9EFFC; --hero-2:#F8FAFD;
+
+    --sig-lead:#B3261E;      /* 治理／高層動態 */
+    --sig-cap:#6941C6;       /* 資本／財務 */
+    --sig-exp:#15803D;       /* 市場擴張 */
+    --sig-prod:#B45309;      /* 產品／技術發布 */
+    --sig-partner:#0E7C86;   /* 生態夥伴 */
+    --sig-other:#52606D;     /* 得標／其他 */
+    --lead-wash:#FBEAE9; --cap-wash:#F0EBFB; --exp-wash:#E7F5EC;
+    --prod-wash:#FBF0E3; --partner-wash:#E4F4F5; --other-wash:#EEF0F3;
+
+    --shadow-1:0 1px 2px rgba(17,24,39,.05);
+    --shadow-2:0 4px 16px -6px rgba(17,24,39,.12),0 1px 2px rgba(17,24,39,.06);
+
+    --radius-lg:16px;  /* Stat card、KPI strip */
+    --radius-md:14px;  /* Competitor card */
+    --radius-sm:8px;   /* Chip／tag／insight box */
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0B0F17; --surface:#131A26; --surface-2:#182130;
+      --ink:#E7ECF3; --ink-soft:#9AA7BC; --ink-faint:#6C7889;
+      --line:#232E3D; --line-soft:#1B2431;
+      --accent:#6F9CEA; --accent-deep:#AFC7F3; --accent-wash:#16233A;
+      --success:#5FCB8B; --success-wash:#132A1D;
+      --hero-1:#141E30; --hero-2:#0B0F17;
+      --sig-lead:#F0857D; --sig-cap:#B39CEF; --sig-exp:#5FCB8B;
+      --sig-prod:#E3A75C; --sig-partner:#5FC8D1; --sig-other:#9AA7BC;
+      --lead-wash:#2B1817; --cap-wash:#221C36; --exp-wash:#132A1D;
+      --prod-wash:#2A1F10; --partner-wash:#122729; --other-wash:#1B2129;
+      --shadow-1:0 1px 2px rgba(0,0,0,.35);
+      --shadow-2:0 4px 16px -6px rgba(0,0,0,.5),0 1px 2px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0B0F17; --surface:#131A26; --surface-2:#182130;
+    --ink:#E7ECF3; --ink-soft:#9AA7BC; --ink-faint:#6C7889;
+    --line:#232E3D; --line-soft:#1B2431;
+    --accent:#6F9CEA; --accent-deep:#AFC7F3; --accent-wash:#16233A;
+    --success:#5FCB8B; --success-wash:#132A1D;
+    --hero-1:#141E30; --hero-2:#0B0F17;
+    --sig-lead:#F0857D; --sig-cap:#B39CEF; --sig-exp:#5FCB8B;
+    --sig-prod:#E3A75C; --sig-partner:#5FC8D1; --sig-other:#9AA7BC;
+    --lead-wash:#2B1817; --cap-wash:#221C36; --exp-wash:#132A1D;
+    --prod-wash:#2A1F10; --partner-wash:#122729; --other-wash:#1B2129;
+    --shadow-1:0 1px 2px rgba(0,0,0,.35);
+    --shadow-2:0 4px 16px -6px rgba(0,0,0,.5),0 1px 2px rgba(0,0,0,.4);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:"Noto Sans TC",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible, input:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px;}
+  svg{display:block;}
+
+  .wrap{max-width:1280px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- top navbar ---------- */
+  .navbar{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;}
+  .navbar .wrap{height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .nav-brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .nav-brand .mark{font-size:1.18rem;font-weight:800;color:var(--accent);letter-spacing:-.02em;}
+  .nav-brand .rule{width:1px;height:16px;background:var(--line);}
+  .nav-brand .slogan{font-size:.76rem;color:var(--ink-faint);white-space:nowrap;}
+  .nav-links{display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
+  .nav-links .nav-tab{
+    font-size:.86rem;font-weight:700;color:var(--ink-faint);position:relative;padding:4px 0;cursor:pointer;
+  }
+  .nav-links .nav-tab:hover{color:var(--ink);}
+  .nav-links .nav-tab.active{color:var(--accent);}
+  .nav-links .nav-tab.active::after{content:"";position:absolute;left:0;right:0;bottom:-19px;height:2px;background:var(--accent);border-radius:2px 2px 0 0;}
+  .nav-avatar{
+    width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;
+  }
+  .nav-tab{appearance:none;background:none;border:none;font:inherit;padding:4px 0;margin:0;}
+  [hidden]{display:none !important;}
+
+  /* ---------- hero ---------- */
+  .hero{background:linear-gradient(180deg,var(--hero-1) 0%,var(--hero-2) 100%);}
+  .hero .wrap{padding:40px 28px 40px;display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+  .hero-left{max-width:600px;}
+  .eyebrow{font:700 .72rem/1 "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 12px;}
+  .hero h1{margin:0;font-size:clamp(2rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02em;color:var(--ink);text-wrap:balance;}
+  .hero .sub-en{margin:12px 0 0;font-size:1.02rem;font-weight:500;color:var(--ink-soft);}
+  .hero .sub-zh{margin:5px 0 0;font-size:.86rem;color:var(--ink-faint);}
+  .hero-right{display:flex;align-items:flex-start;}
+  .updated-pill{
+    display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);
+    border-radius:999px;padding:8px 15px;font-size:.78rem;color:var(--ink-soft);box-shadow:var(--shadow-1);white-space:nowrap;
+  }
+  .updated-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--success);flex-shrink:0;}
+
+  /* ---------- stat row ---------- */
+  .stats-row{
+    max-width:1280px;margin:-28px auto 0;padding:0 28px;position:relative;z-index:2;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  }
+  .stat-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-2);padding:18px 20px;display:flex;align-items:center;gap:14px;
+  }
+  .stat-card .icon{
+    width:44px;height:44px;border-radius:12px;background:var(--accent);color:#fff;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .stat-card .icon svg{width:21px;height:21px;}
+  .stat-card .n{font-size:1.65rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.15;}
+  .stat-card .l1{margin-top:1px;font-size:.8rem;font-weight:700;color:var(--ink);}
+  .stat-card .l2{font-size:.72rem;color:var(--ink-faint);}
+  @media (max-width:760px){ .stats-row{grid-template-columns:1fr;} }
+
+  /* ---------- filter bar ---------- */
+  .filters{
+    position:sticky;top:64px;z-index:10;background:var(--ground);
+    padding:22px 0 16px;margin-bottom:6px;border-bottom:1px solid var(--line);
+    display:flex;flex-direction:column;gap:13px;
+  }
+  .filter-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px;row-gap:10px;}
+  .filter-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .filter-label{font:700 .78rem/1 "Noto Sans TC",sans-serif;color:var(--ink-soft);flex-shrink:0;}
+  .pill-group{display:inline-flex;gap:6px;flex-wrap:wrap;}
+  .pill{
+    appearance:none;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);
+    font:600 .8rem/1 "Noto Sans TC",sans-serif;padding:8px 15px;border-radius:999px;
+    display:inline-flex;align-items:center;gap:6px;transition:background .15s,color .15s,border-color .15s;
+  }
+  .pill .sw{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+  .pill[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .pill:hover:not([aria-pressed="true"]){border-color:var(--accent);color:var(--accent-deep);}
+
+  .search-box{position:relative;margin-left:auto;}
+  .search-box svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--ink-faint);}
+  .search-box input{
+    width:250px;max-width:60vw;padding:9px 14px 9px 36px;border:1px solid var(--line);border-radius:999px;
+    background:var(--surface);color:var(--ink);font:500 .82rem/1 "Noto Sans TC",sans-serif;
+  }
+  .search-box input::placeholder{color:var(--ink-faint);}
+
+  .range-note{font:400 .74rem/1.4 "Noto Sans TC",sans-serif;color:var(--ink-faint);}
+
+  /* ---------- export buttons (top-right, in navbar) ---------- */
+  .nav-export{display:flex;align-items:center;gap:6px;}
+  .nav-icon-btn{
+    appearance:none;cursor:pointer;width:34px;height:34px;border-radius:9px;flex-shrink:0;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);
+    display:flex;align-items:center;justify-content:center;transition:border-color .15s,color .15s,background .15s;
+  }
+  .nav-icon-btn:hover{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-wash);}
+  .nav-icon-btn svg{width:16px;height:16px;}
+
+
+  /* ---------- trends view ---------- */
+  .trends-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:22px 0 40px;}
+  @media (max-width:860px){ .trends-grid{grid-template-columns:1fr;} }
+  .trend-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);
+    box-shadow:var(--shadow-1);padding:20px;
+  }
+  .trend-card h3{margin:0 0 4px;font-size:.94rem;font-weight:800;color:var(--ink);}
+  .trend-sub{margin:0 0 14px;font-size:.74rem;color:var(--ink-faint);}
+  .trend-bar-row{display:flex;align-items:center;gap:10px;padding:7px 0;}
+  .trend-bar-label{width:112px;flex-shrink:0;font-size:.8rem;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .trend-bar-track{flex:1;height:10px;background:var(--surface-2);border-radius:5px;overflow:hidden;}
+  .trend-bar-fill{height:100%;border-radius:5px;}
+  .trend-bar-count{width:28px;text-align:right;font:700 .78rem/1 "IBM Plex Mono",monospace;color:var(--ink);flex-shrink:0;}
+  .trend-empty{font-size:.83rem;color:var(--ink-faint);}
+
+  /* ---------- section header ---------- */
+  .section-label{margin:34px 0 14px;display:flex;align-items:center;gap:10px;}
+  .section-label .icon{
+    width:24px;height:24px;border-radius:7px;background:var(--accent-wash);color:var(--accent-deep);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .section-label .icon svg{width:13px;height:13px;}
+  .section-label[data-tone="marketing"] .icon{background:var(--success-wash);color:var(--success);}
+  .section-label h2{margin:0;font-size:.98rem;font-weight:800;color:var(--ink);letter-spacing:.01em;}
+  .section-label .count{font-size:.82rem;font-weight:500;color:var(--ink-faint);}
+
+  /* ---------- KPI strip ---------- */
+  .kpis{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line-soft);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;
+    margin-bottom:16px;
+  }
+  .kpi{background:var(--surface);padding:14px 17px;}
+  .kpi .n{font-size:1.4rem;font-weight:800;color:var(--ink);letter-spacing:-.01em;}
+  .kpi .n small{font-size:.7rem;font-weight:500;color:var(--ink-soft);}
+  .kpi .l{margin-top:5px;font-size:.75rem;color:var(--ink-soft);line-height:1.45;}
+  .kpi .hint{margin-top:3px;font-size:.7rem;color:var(--ink-faint);}
+  @media (max-width:720px){ .kpis{grid-template-columns:repeat(2,1fr);} }
+
+  /* ---------- competitor grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);
+    padding:20px;display:flex;flex-direction:column;gap:13px;
+    box-shadow:var(--shadow-1);transition:box-shadow .15s,border-color .15s;
+  }
+  .card:hover{box-shadow:var(--shadow-2);}
+  .card.hidden{display:none;}
+
+  .card-top{display:flex;align-items:flex-start;gap:12px;}
+  .avatar{
+    width:40px;height:40px;border-radius:11px;flex-shrink:0;color:#fff;font-weight:800;font-size:.9rem;
+    display:flex;align-items:center;justify-content:center;letter-spacing:-.02em;
+  }
+  .card-title{display:flex;flex-direction:column;gap:5px;min-width:0;}
+  .card-title h3{margin:0;font-size:1.03rem;font-weight:800;color:var(--ink);line-height:1.28;}
+  .tag{
+    align-self:flex-start;font:700 .62rem/1 "Noto Sans TC",sans-serif;letter-spacing:.03em;
+    padding:3px 8px;border-radius:6px;white-space:nowrap;
+  }
+  .tag.service{background:var(--accent-wash);color:var(--accent-deep);}
+  .tag.marketing{background:var(--success-wash);color:var(--success);}
+
+  .card .pos{font-size:.82rem;color:var(--ink-soft);line-height:1.5;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip-stat{
+    font:700 .7rem/1 "IBM Plex Mono",monospace;padding:5px 9px;border-radius:7px;
+    display:inline-flex;align-items:center;gap:4px;
+  }
+  .chip-blue{background:var(--accent-wash);color:var(--accent-deep);}
+  .chip-green{background:var(--success-wash);color:var(--success);}
+
+  .card .metric{
+    font:600 .78rem/1.45 "IBM Plex Mono",monospace;color:var(--ink-soft);
+    background:var(--surface-2);border-radius:8px;padding:8px 11px;
+  }
+
+  .signal-list{display:flex;flex-direction:column;}
+  .signal{padding:10px 0;border-top:1px solid var(--line-soft);}
+  .signal:first-child{border-top:none;padding-top:0;}
+  .signal-meta{display:flex;align-items:center;gap:7px;margin-bottom:4px;}
+  .signal-meta .date{font:600 .68rem/1 "IBM Plex Mono",monospace;color:var(--ink-faint);}
+  .signal-meta .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+  .signal-meta .cat-label{font-size:.68rem;font-weight:600;color:var(--ink-faint);}
+  .signal .headline{font-size:.86rem;line-height:1.5;color:var(--ink);font-weight:500;}
+  .signal .headline a{color:var(--ink);}
+  .signal .headline a:hover{color:var(--accent);}
+
+  .insight{margin-top:8px;display:flex;gap:8px;align-items:flex-start;background:var(--accent-wash);border-radius:var(--radius-sm);padding:10px 12px;}
+  .insight .body{flex:1;min-width:0;}
+  .insight .label{display:block;font-size:.66rem;font-weight:800;letter-spacing:.02em;color:var(--accent-deep);margin-bottom:2px;}
+  .insight p{margin:0;font-size:.8rem;line-height:1.5;color:var(--ink-soft);}
+  .insight .arrow{margin-left:2px;color:var(--accent);font-weight:800;flex-shrink:0;font-size:.9rem;}
+
+  .signal.hidden{display:none;}
+  .signal-empty{padding:10px 0 2px;font-size:.8rem;color:var(--ink-faint);font-style:italic;}
+  .signal-empty.hidden{display:none;}
+
+  .cat-lead .dot{background:var(--sig-lead);} .cat-cap .dot{background:var(--sig-cap);}
+  .cat-exp .dot{background:var(--sig-exp);} .cat-prod .dot{background:var(--sig-prod);}
+  .cat-partner .dot{background:var(--sig-partner);} .cat-other .dot{background:var(--sig-other);}
+
+  .live-note{margin-top:12px;font:400 .74rem/1.5 "Noto Sans TC",sans-serif;color:var(--ink-faint);}
+
+  footer{margin-top:48px;padding:22px 0 40px;border-top:1px solid var(--line);}
+  .footer-notes{font-size:.76rem;line-height:1.75;color:var(--ink-faint);margin-bottom:18px;}
+  .footer-notes b{color:var(--ink-soft);}
+  .footer-brand{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .footer-brand .left{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--ink-faint);}
+  .footer-brand .left .mark{font-weight:800;color:var(--accent-deep);}
+  .footer-brand .right{font-size:.8rem;font-weight:600;color:var(--ink-soft);display:flex;align-items:center;gap:8px;}
+  .footer-brand .right .rule{width:32px;height:2px;background:var(--accent);border-radius:2px;}
+
+  /* ---------- report (PDF 列印／HTML 匯出共用的獨立報告排版，跟 dashboard 外觀刻意分開；
+     表格呈現，目標是用我們目前的對手／訊號量，兩頁內放完 ---------- */
+  #reportRoot{display:none;}
+  .report{
+    max-width:960px;margin:0 auto;padding:0 34px 30px;background:#fff;color:#111827;
+    font-family:"Noto Sans TC",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.5;
+  }
+  /* 滿版淺藍底 masthead，用負邊界頂到頁面邊緣，跟 iKala CI 主藍呼應 */
+  .report-masthead{
+    margin:0 -34px 18px;padding:22px 34px 16px;border-bottom:3px solid #143A82;
+    background:linear-gradient(135deg,#EAF1FE 0%,#F7F9FD 65%);
+  }
+  .report-brand{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .report-brand-mark{font:800 .84rem/1 "IBM Plex Mono",monospace;letter-spacing:.06em;color:#143A82;text-transform:uppercase;}
+  .report-brand-line{font-size:.7rem;color:#5B6B85;}
+  .report-title{margin:10px 0 0;font-size:1.55rem;font-weight:800;color:#111827;letter-spacing:-.01em;}
+  .report-subtitle{margin:3px 0 0;font-size:.8rem;color:#5B6B85;}
+  .report-meta{margin-top:12px;display:flex;flex-wrap:wrap;gap:4px 22px;font-size:.76rem;color:#5B6B85;}
+  .report-meta b{color:#111827;}
+
+  .report-stats{display:flex;gap:14px;margin:16px 0 18px;}
+  .report-stat{
+    flex:1;display:flex;align-items:center;gap:10px;padding:10px 14px;
+    background:#F5F7FB;border-radius:9px;
+  }
+  .report-stat .icon{
+    width:30px;height:30px;border-radius:8px;background:#2563EB;color:#fff;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .report-stat .icon svg{width:15px;height:15px;}
+  .report-stat .n{font-size:1.15rem;font-weight:800;color:#111827;line-height:1.1;}
+  .report-stat .l{font-size:.68rem;color:#5B6B85;margin-top:1px;}
+
+  .report-section-h{margin:20px 0 8px;font-size:.95rem;font-weight:800;border-bottom:1px solid #DCE3EE;padding-bottom:5px;color:#111827;}
+  .report-company-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;flex-shrink:0;}
+
+  /* 近期動態：不分公司分組、不用 rowspan，單純一則訊號一列，每列高度一致，密度最高 */
+  .report-table{width:100%;border-collapse:collapse;font-size:.77rem;margin-bottom:4px;}
+  .report-table thead{display:table-header-group;}
+  .report-table th{
+    text-align:left;font-size:.63rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+    color:#5B6B85;padding:5px 7px;border-bottom:2px solid #DCE3EE;background:#FAFBFD;
+  }
+  .report-table td{padding:6px 7px;vertical-align:top;border-bottom:1px solid #EDF1FA;}
+  .report-table tr{break-inside:avoid;page-break-inside:avoid;}
+  .report-table .col-company{width:11%;font-weight:700;color:#111827;white-space:nowrap;}
+  .report-table .col-date{width:8%;white-space:nowrap;}
+  .report-table .col-cat{width:10%;white-space:nowrap;}
+  .report-table .col-headline{width:33%;}
+  .report-table .col-insight{width:38%;background:#F7F9FF;}
+  .report-date{font-family:"IBM Plex Mono",monospace;color:#5B6B85;font-size:.72rem;}
+  .report-cat{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;color:#5B6B85;white-space:nowrap;}
+  .report-cat .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+  .report-headline{color:#111827;line-height:1.5;}
+  .report-insight{color:#374151;line-height:1.5;}
+  .report-insight b{color:#153E90;}
+  .report-empty-note{color:#93A0B8;font-style:italic;}
+  .report-no-signals{margin:8px 0 0;font-size:.74rem;color:#93A0B8;font-style:italic;}
+
+  @media print{
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    body{background:#fff;}
+    body.printing-report > *:not(#reportRoot){display:none !important;}
+    body.printing-report #reportRoot{display:block !important;}
+    .report{max-width:none;}
+  }
+</style>
+
+<nav class="navbar">
+  <div class="wrap">
+    <div class="nav-brand">
+      <span class="mark">iKala</span>
+      <span class="rule"></span>
+      <span class="slogan">Empower Your Business with AI</span>
+    </div>
+    <div class="nav-links">
+      <button class="nav-tab active" data-view="dashboard">Dashboard</button>
+      <button class="nav-tab" data-view="trends">Trends</button>
+    </div>
+    <div class="nav-export">
+      <button class="nav-icon-btn" id="exportHtmlBtn" type="button" title="匯出 HTML（依目前篩選結果）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+      <button class="nav-icon-btn" id="exportPdfBtn" type="button" title="匯出 PDF（依目前篩選結果，會開啟列印視窗）"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></button>
+    </div>
+    <div class="nav-avatar" title="內部競爭情報工具">iK</div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-left">
+      <p class="eyebrow">Competitive Intelligence</p>
+      <h1>競品雷達</h1>
+      <p class="sub-en">AI-powered competitive intelligence for iKala AI Service &amp; AI Marketing</p>
+      <p class="sub-zh">追蹤全球 AI 產業動態，掌握競爭策略，協助 iKala 持續掌握市場機會。</p>
+    </div>
+    <div class="hero-right">
+      <div class="updated-pill"><span class="dot"></span>最後更新 <span class="mono" id="asOf">—</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M17 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+    <div class="body">
+      <div class="n mono" id="statCompanies">—</div>
+      <div class="l1">競爭追蹤中</div>
+      <div class="l2">Competitors Monitored</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
+    <div class="body">
+      <div class="n mono" id="statSignals">—</div>
+      <div class="l1">已記錄情報</div>
+      <div class="l2">Signals Recorded</div>
+    </div>
+  </div>
+  <div class="stat-card">
+    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+    <div class="body">
+      <div class="n">持續追蹤</div>
+      <div class="l1">掌握產業最新動態</div>
+      <div class="l2">Market Intelligence</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="view" id="viewDashboard">
+
+  <div class="filters" id="filters">
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">時間範圍</span>
+        <div class="pill-group" id="rangeFilters">
+          <button class="pill" data-range="7" aria-pressed="false">7 天</button>
+          <button class="pill" data-range="30" aria-pressed="false">30 天</button>
+          <button class="pill" data-range="90" aria-pressed="true">90 天</button>
+          <button class="pill" data-range="180" aria-pressed="false">半年</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">服務領域</span>
+        <div class="pill-group" id="grpFilters">
+          <button class="pill" data-grp="all" aria-pressed="true">全部</button>
+          <button class="pill" data-grp="service" aria-pressed="false"><span class="sw" style="background:var(--accent)"></span>AI Service</button>
+          <button class="pill" data-grp="marketing" aria-pressed="false"><span class="sw" style="background:var(--success)"></span>AI Marketing</button>
+        </div>
+      </div>
+    </div>
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">分類</span>
+        <div class="pill-group" id="catFilters"></div>
+      </div>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="searchInput" placeholder="搜尋公司、關鍵字或主題...">
+      </div>
+    </div>
+    <div class="range-note" id="rangeNote"></div>
+  </div>
+
+  <div class="section-label" data-tone="service">
+    <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></span>
+    <h2>AI SERVICE</h2>
+    <span class="count" id="countService"></span>
+  </div>
+  <div class="kpis" id="kpiService"></div>
+  <div class="grid" id="gridService"></div>
+
+  <div class="section-label" data-tone="marketing">
+    <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+    <h2>AI MARKETING</h2>
+    <span class="count" id="countMarketing"></span>
+  </div>
+  <div class="kpis" id="kpiMarketing"></div>
+  <div class="grid" id="gridMarketing"></div>
+
+</div>
+
+<div class="view" id="viewTrends" hidden>
+  <div class="trends-grid">
+    <section class="trend-card">
+      <h3>依分類統計訊號量</h3>
+      <p class="trend-sub">依目前的服務領域與時間範圍篩選（不受分類篩選影響，這裡本來就是要看分類分布）</p>
+      <div id="trendCatBars"></div>
+    </section>
+    <section class="trend-card">
+      <h3>最活躍的對手</h3>
+      <p class="trend-sub">依目前的服務領域與時間範圍篩選，依訊號則數排序</p>
+      <div id="trendCompanyBars"></div>
+    </section>
+  </div>
+</div>
+
+  <div class="live-note" id="liveNote">◌ 正在連線即時資料…</div>
+
+  <footer>
+    <div class="footer-notes">
+      <b>方法論</b>　每則訊號由 Claude 執行 WebSearch 查證後人工分類、附上出處連結；「對 iKala 的啟示」是判讀備註，不是官方立場。分類為程式規則輔助人工歸類，可能有誤，請以原文為準。訊號回溯區間固定不超過半年，篩選列最長只開放到 180 天。<br>
+      <b>更新頻率</b>　目前為人工查證後手動更新（排程 agent 卡在權限確認關卡，暫停用），要更新請直接跟 Claude 說；兩組「關注指標」用的結構性狀態（毛利率、GEO／Agent API 是否已上線、日本市場是否規模化）本來就是不定期覆核，不是每日新聞。<br>
+      <b>覆蓋範圍</b>　AI Service：APMIC、台智雲、精誠、伊雲谷、博弘雲端／宏庭科技。AI Marketing：Keypo（大數據）、大數軟體 LargitData、OpView（意藍資訊）、91APP、阿物 awoo、Appier。
+    </div>
+    <div class="footer-brand">
+      <div class="left"><span class="mark">iKala</span>　© 2026 iKala. All rights reserved. ｜ 內部競爭情報工具，非對外文件</div>
+      <div class="right">AI for a Better Tomorrow.<span class="rule"></span></div>
+    </div>
+  </footer>
+</div>
+
+<div id="reportRoot"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  var CAT = {
+    lead:    {label:"治理／高層", cls:"lead"},
+    cap:     {label:"資本／財務", cls:"cap"},
+    exp:     {label:"市場擴張",   cls:"exp"},
+    prod:    {label:"產品／技術", cls:"prod"},
+    partner: {label:"生態夥伴",   cls:"partner"},
+    other:   {label:"得標／其他", cls:"other"}
+  };
+
+  // 內嵌快照，只在 data.json 抓不到時當退路用（例如 Claude Artifact 的 CSP 會擋掉這個 fetch）。
+  // Vercel 部署版平常吃的是 data.json，由每日排程直接 commit 更新、Vercel push 就自動重新部署。
+  // service 組的判讀重點：毛利結構、有沒有跨層 AI 平台跟 iKala 敘事重疊
+  // marketing 組的判讀重點：GEO／Agent API 有沒有先上市、毛利靠不靠系統鎖定、日本市場規模化
+  var DEFAULT_COMPETITORS = [
+    {id:"apmic", name:"APMIC 亞太智能機器", grp:"service",
+      pos:"微調／私有化部署，鎖定政府與金融客戶",
+      metric:"700 萬美元 A 輪 · PrivStation 2 預計 2026 Q4 上市",
+      marginPct:null, broadAiPlatform:false},
+    {id:"twsc", name:"台智雲 TWSC", grp:"service",
+      pos:"華碩集團全棧算力服務商，主權 AI 基礎建設",
+      metric:"2025 營收 25.83 億（+198.5%）· 毛利率 10.47%",
+      marginPct:10.47, broadAiPlatform:true},
+    {id:"systex", name:"精誠資訊 SYSTEX", grp:"service",
+      pos:"老牌 SI／VAD 經銷商，正擴大全球 IT 服務",
+      metric:"營收 439.7 億 · 毛利率 21.9%",
+      marginPct:21.9, broadAiPlatform:false},
+    {id:"ecloudvalley", name:"伊雲谷 eCloudvalley", grp:"service",
+      pos:"AWS／GCP／Anthropic 雲代理商，集團化 AI portfolio",
+      metric:"5 月營收 10.28 億 · 已掛牌上市",
+      marginPct:null, broadAiPlatform:true},
+    {id:"bohong", name:"博弘雲端 · 宏庭科技", grp:"service",
+      pos:"AWS／GCP／Azure／Alibaba 大中華區最高等級代理商",
+      metric:"2026/07 成為 OpenAI Select Partner",
+      marginPct:null, broadAiPlatform:false},
+    {id:"keypo", name:"Keypo · 大數據", grp:"marketing",
+      pos:"AI 輿情分析平台，跨足企業 KYC",
+      metric:"海外布局台港日中東 · 籌備 IPO",
+      marginPct:null, geoLive:true, agentApiLive:false, japanScaled:false},
+    {id:"largitdata", name:"大數軟體 LargitData", grp:"marketing",
+      pos:"輿情分析／企業情報 AI 平台，核心產品 InfoMiner",
+      metric:"首批取得 NVIDIA 超級電腦算力資源業者之一",
+      marginPct:null, geoLive:false, agentApiLive:false, japanScaled:false},
+    {id:"opview", name:"OpView · 意藍資訊", grp:"marketing",
+      pos:"台灣最全面輿情系統，已上市（6925）",
+      metric:"OpView Agent Tools API 已上線",
+      marginPct:null, geoLive:false, agentApiLive:true, japanScaled:false},
+    {id:"app91", name:"91APP", grp:"marketing",
+      pos:"電商系統整合派，AI SEO 內建電商後台",
+      metric:"8 月營收 1.81 億（+30.4%）· 毛利率 74.2%",
+      marginPct:74.2, geoLive:false, agentApiLive:true, japanScaled:false},
+    {id:"awoo", name:"阿物 awoo", grp:"marketing",
+      pos:"亞洲 AI 行銷科技領導品牌，GEO／SEO",
+      metric:"服務全球逾 16,000 家企業",
+      marginPct:null, geoLive:true, agentApiLive:false, japanScaled:true},
+    {id:"appier", name:"Appier", grp:"marketing",
+      pos:"東證上市 AI 獨角獸，Agentic AI SaaS",
+      metric:"2026 Q2 毛利率 60.1% · 市值約 9.1 億美元",
+      marginPct:60.1, geoLive:false, agentApiLive:true, japanScaled:false}
+  ];
+
+  var DEFAULT_SIGNALS = [
+    {company:"apmic", date:"2026-03-12", cat:"cap",
+      title:"完成 700 萬美元 A 輪，AIPO 領投、趨勢科技跟投",
+      url:"https://newtalk.tw/news/view/2026-03-12/1023984",
+      note:"iKala AI Service 非轉售部分年化僅約 3,100 萬，APMIC 的募資規模與客群持續壓過我們。"},
+    {company:"apmic", date:"2026-07-02", cat:"prod",
+      title:"發表 PrivStation 2，宣稱 30 天完成企業 AI 平台部署，支援 NVIDIA Blackwell／Vera Rubin",
+      url:"https://technews.tw/2026/07/02/apmic-privstation-day-2026/",
+      note:"私有化部署速度是他們的主打賣點；對抗策略仍是具名客戶 ROI，不是比部署天數或參數。"},
+    {company:"apmic", date:"2026", cat:"partner",
+      title:"黃仁勳於 COMPUTEX 三度公開點名，Google、NEC 主動接觸",
+      url:"https://www.bnext.com.tw/article/82763/apmic-ai",
+      note:"聲量持續壓過 iKala AI Service；敘事上把微調收進「模型」層一項能力，不正面比聲量。"},
+
+    {company:"twsc", date:"2026-05-29", cat:"cap",
+      title:"登錄興櫃，2025 年營收 25.83 億元（+198.5%）、轉盈 EPS 4.14 元",
+      url:"https://money.udn.com/money/amp/story/5612/9529118",
+      note:"毛利率僅 10.47%——證明硬體交付模式的天花板，也是 iKala AI Service 定位模型與部署層、不做硬體交付的理由。"},
+    {company:"twsc", date:"2026", cat:"other",
+      title:"得標國網中心「2026 年人工智慧高速計算大型通用主機建置採購案」",
+      url:"https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=3c7845b8-4336-464b-9a19-f748747cfe9c",
+      note:"持續拿下政府主權 AI 大案，AI Service 想卡進模型與部署層，時間窗口在收窄。"},
+    {company:"twsc", date:"2026-05-22", cat:"prod",
+      title:"推出 AFS Suite，全棧式主權 AI 平台涵蓋算力／資料／模型／Agent 應用",
+      url:"https://finance.technews.tw/2026/05/22/teai-afs-suite/",
+      note:"跟 iKala 架構圖的 Infra/Data/Model/Tool 四層幾乎一一對應，而且比伊雲谷的同類發表早了近 4 個月。"},
+
+    {company:"systex", date:"2026-02-02", cat:"partner",
+      title:"與日本伊藤忠商事（ITOCHU）建立策略聯盟",
+      url:"https://tw.systex.com/news/news-2026/",
+      note:"精誠打入日本大型商社通路，跟 iKala 日本布局鎖定的通路夥伴屬同一層級。"},
+    {company:"systex", date:"2026-04-21", cat:"exp",
+      title:"啟動「全球 IT 服務」，整合 24 國通路夥伴、200 家原廠、250 位東南亞在地員工",
+      url:"https://tw.systex.com/news/news-2026/",
+      note:"規模近 iKala 20 倍，東南亞人力布局已成規模，非拓展初期。"},
+    {company:"systex", date:"2026-08-27", cat:"lead",
+      title:"台信電訊公開收購精誠股份案，審議委員會認定條件具公平性",
+      url:"https://tw.systex.com/nr_260901/",
+      note:"經營權可能出現變化，留意對台灣雲代理／SI 市場格局的連動影響。"},
+
+    {company:"ecloudvalley", date:"2026-03-24", cat:"exp",
+      title:"正式宣布進軍日本市場",
+      url:"https://www.ecloudvalley.com/tw/newsroom/officially-enters-japanese-market",
+      note:"雲代理商也已進場日本，跟 iKala Japan 的通路策略正面相撞，需要加快既有三個夥伴的綁定。"},
+    {company:"ecloudvalley", date:"2026-09-11", cat:"prod",
+      title:"舉辦「360 全方位 AI 生態系發布會」，發表涵蓋 Agent／資料／模型評測／治理／資安到 Edge AI 的 Enterprise AI Portfolio",
+      url:"https://news.nextapple.com/finance/20260911/393EAC78E1C96AAECA5BB6F5E8BCA923",
+      note:"產品範疇幾乎跟 iKala 架構圖的 Infra／Data／Model／Tool 四層重疊，而且比我們早發表出來。"},
+
+    {company:"bohong", date:"2026-07-20", cat:"partner",
+      title:"博弘雲端成為 OpenAI Select Partner",
+      url:"",
+      note:"原始連結待補；博弘／宏庭已是 AWS／GCP／Azure／Alibaba 大中華區最高等級代理商，現又拿下 OpenAI，生態綁定廣度超越 iKala 目前的 Google Cloud 單一夥伴關係。"},
+    {company:"bohong", date:"2026-08-12", cat:"lead",
+      title:"公告總經理異動，陳仲儒接任（9/7 生效）",
+      url:"https://news.cnyes.com/news/id/6574160",
+      note:"剛拿下 OpenAI Select Partner 就換上新任總經理，訊號指向加速 AI 轉型；持續觀察多雲＋OpenAI 生態綁定是否加碼。"},
+
+    {company:"keypo", date:"2026", cat:"prod",
+      title:"KEYPO 新增 AI 聆聽功能，分析品牌在 ChatGPT／Gemini 中的曝光與評價，首度登上 2026 LEAP East",
+      url:"https://money.udn.com/money/story/11162/9617280",
+      note:"這正是 Kuroma 在做的 GEO／AI 能見度分析，Keypo 已把它做成既有輿情平台的附加功能上市。"},
+    {company:"keypo", date:"2026", cat:"exp",
+      title:"海外布局擴及香港、日本、中東，為 IPO 公開發行累積能量",
+      url:"https://dailyview.tw/popular/detail/33542",
+      note:"對手也在往日本擴張，且已有明確 IPO 時程。"},
+
+    {company:"largitdata", date:"2026", cat:"prod",
+      title:"推出 AI 影音內容分析雲服務，24/7 監控 TikTok／YouTube 並支援即時關鍵字通報",
+      url:"https://www.largitdata.com/latest-news/2",
+      note:"輿情／社群監測產品持續迭代到影音層。"},
+    {company:"largitdata", date:"2026", cat:"partner",
+      title:"成為首批取得 NVIDIA 超級電腦算力資源的業者之一",
+      url:"https://www.largitdata.com/latest-news/2",
+      note:"算力取得速度值得留意，是否轉化為模型能力仍待觀察。"},
+
+    {company:"opview", date:"2026", cat:"prod",
+      title:"正式推出 OpView Agent Tools API，把市場情報轉為 AI 可直接調用的工具，可串接 OpenAI Codex／Claude",
+      url:"https://fc.bnext.com.tw/articles/view/4769",
+      note:"直接撞上 iKala 規劃中的 Datahub＋MCP，時間窗口比預期短，SWOT 裡列為最高優先關注訊號。"},
+    {company:"opview", date:"2026-07-30", cat:"prod",
+      title:"參展 AI WAVE SHOW 2026，主打「Agent Ready」企業大腦四大解決方案",
+      url:"https://www.chinatimes.com/realtimenews/20260730001977-260410",
+      note:"敘事語言（Agent Ready、可信知識庫）跟 iKala 的 One iKala 敘事高度相似。"},
+
+    {company:"app91", date:"2026", cat:"prod",
+      title:"正式發表企業級 AI Agent 平台「AgentOne」，導入零售與餐飲商務場景",
+      url:"https://91app.com/blog/newtechlaunchweek-00/",
+      note:"從電商系統切入 agent，跟 AI Service 想講的「模型與部署層」敘事重疊。"},
+    {company:"app91", date:"2026-09", cat:"cap",
+      title:"8 月合併營收 1.81 億元（+30.42%），累計 1–8 月 14.64 億元（+32.14%）",
+      url:"https://91app.com/blog/91app-202609-2026bic/",
+      note:"毛利率 74.2%（系統鎖定、加購邊際成本趨近零）遠高於 iKala 非轉售毛利率目標。"},
+
+    {company:"awoo", date:"2026-03", cat:"prod",
+      title:"推出 awoo GEO Suite，協助品牌掌握在 AI 平台上的能見度",
+      url:"https://www.awoo.ai/ja/latest-news/",
+      note:"直接對標 Kuroma 的 GEO 核心功能，而且已經產品化上市。"},
+    {company:"awoo", date:"2026", cat:"exp",
+      title:"連兩年獲日本 Fashion EC Awards「Support Award」，鞏固日本 MarTech 領先地位",
+      url:"https://www.awoo.ai/ja/company/",
+      note:"已在 iKala 鎖定的日本市場做出規模化成功，是最值得研究的對照組。"},
+
+    {company:"appier", date:"2026-05-13", cat:"cap",
+      title:"Q1 營收 121 億日圓創新高（+29.4% YoY），毛利率攀至 53.9%",
+      url:"https://www.prnewswire.com/news-releases/appier-beats-q1-revenue-and-profit-targets-with-agentic-ai-driven-growth-302770722.html",
+      note:"飛輪邏輯跟 iKala 幾乎一樣，但已被財務數字證明——這正是 iKala 想爭取的估值位置。"},
+    {company:"appier", date:"2026-08-14", cat:"cap",
+      title:"Q2 營收 129 億日圓再創新高（+24.6% YoY），毛利率首度突破 60.1%",
+      url:"https://www.digitimes.com/news/a20260814PD202/revenue-appier-outlook-business-development.html",
+      note:"毛利率連兩季創高，證明 agentic AI 飛輪在財務上站得住腳。"}
+  ];
+
+  var AVATAR_COLORS = ["#2563EB","#7C3AED","#DB2777","#059669","#D97706","#0EA5E9","#DC2626","#0D9488","#4F46E5","#65A30D","#C026D3"];
+  function avatarColor(idx){ return AVATAR_COLORS[idx % AVATAR_COLORS.length]; }
+  function initialsOf(name){
+    var s = String(name).trim();
+    var m = s.match(/^[A-Za-z0-9]{1,2}/);
+    if (m) return m[0].toUpperCase();
+    return s.charAt(0);
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  // 訊號日期精度不一：YYYY-MM-DD 準確算；YYYY-MM 用當月 1 號；YYYY 用當年 1/1。
+  function daysAgo(dateStr){
+    var s = String(dateStr);
+    var iso;
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) iso = s;
+    else if (/^\d{4}-\d{2}$/.test(s)) iso = s + "-01";
+    else if (/^\d{4}$/.test(s)) iso = s + "-01-01";
+    else return null;
+    var d = new Date(iso + "T00:00:00Z");
+    if (isNaN(d.getTime())) return null;
+    return Math.floor((Date.now() - d.getTime()) / 86400000);
+  }
+
+  function renderStats(competitors, signals){
+    document.getElementById("statCompanies").textContent = competitors.length;
+    document.getElementById("statSignals").textContent = signals.length;
+    var svc = competitors.filter(function(c){ return c.grp === "service"; }).length;
+    var mkt = competitors.filter(function(c){ return c.grp === "marketing"; }).length;
+    document.getElementById("countService").textContent = "　·　" + svc + " 家";
+    document.getElementById("countMarketing").textContent = "　·　" + mkt + " 家";
+  }
+
+  function kpiTile(nBig, nSmall, label, hint){
+    var d = document.createElement("div");
+    d.className = "kpi";
+    var n = document.createElement("div");
+    n.className = "n mono";
+    n.textContent = nBig;
+    if (nSmall) {
+      var sm = document.createElement("small");
+      sm.textContent = " " + nSmall;
+      n.appendChild(sm);
+    }
+    var l = document.createElement("div");
+    l.className = "l";
+    l.textContent = label;
+    d.appendChild(n); d.appendChild(l);
+    if (hint) {
+      var h = document.createElement("div");
+      h.className = "hint";
+      h.textContent = hint;
+      d.appendChild(h);
+    }
+    return d;
+  }
+
+  function namesOf(list){ return list.map(function(c){ return c.name.split(/[ ·．]/)[0]; }).join("・") || "目前沒有"; }
+
+  function countSignalsSince(signals, ids, cat, days){
+    return signals.filter(function(s){
+      if (ids.indexOf(s.company) === -1) return false;
+      if (s.cat !== cat) return false;
+      var da = daysAgo(s.date);
+      return da !== null && da <= days;
+    }).length;
+  }
+
+  function renderKpis(grp, competitors, signals, container, rangeDays, rangeLabel){
+    container.innerHTML = "";
+    var ids = competitors.map(function(c){ return c.id; });
+    var total = competitors.length;
+
+    if (grp === "service") {
+      var withMargin = competitors.filter(function(c){ return c.marginPct != null; });
+      var marginRange = withMargin.length
+        ? withMargin.map(function(c){ return c.marginPct + "%"; }).sort().join("–")
+        : "—";
+      var broad = competitors.filter(function(c){ return c.broadAiPlatform; });
+      var capCount = countSignalsSince(signals, ids, "cap", rangeDays);
+      var partnerCount = countSignalsSince(signals, ids, "partner", rangeDays);
+
+      container.appendChild(kpiTile(withMargin.length + "／" + total, null, "毛利率已揭露",
+        (marginRange !== "—" ? marginRange + " · " : "") + namesOf(withMargin)));
+      container.appendChild(kpiTile(broad.length + "／" + total, null, "跨層 AI 平台與 iKala 架構重疊",
+        namesOf(broad)));
+      container.appendChild(kpiTile(capCount, "則", rangeLabel + "資本／財務動態", "募資・上市・財報"));
+      container.appendChild(kpiTile(partnerCount, "則", rangeLabel + "生態聯盟動態", "雲端／原廠夥伴關係"));
+    } else {
+      var geo = competitors.filter(function(c){ return c.geoLive; });
+      var agentApi = competitors.filter(function(c){ return c.agentApiLive; });
+      var withMargin2 = competitors.filter(function(c){ return c.marginPct != null; });
+      var marginRange2 = withMargin2.length
+        ? withMargin2.map(function(c){ return c.marginPct + "%"; }).sort().join("–")
+        : "—";
+      var jp = competitors.filter(function(c){ return c.japanScaled; });
+
+      container.appendChild(kpiTile(geo.length + "／" + total, null, "GEO／AI 能見度已上線",
+        "對比 Kuroma 的產品化進度 · " + namesOf(geo)));
+      container.appendChild(kpiTile(agentApi.length + "／" + total, null, "Agent API／可對外串接已上線",
+        "對比 Kolr+Kuroma 的 MCP 時間窗口 · " + namesOf(agentApi)));
+      container.appendChild(kpiTile(withMargin2.length + "／" + total, null, "毛利率已揭露",
+        (marginRange2 !== "—" ? marginRange2 + " · " : "") + namesOf(withMargin2)));
+      container.appendChild(kpiTile(jp.length + "／" + total, null, "日本市場已規模化",
+        namesOf(jp)));
+    }
+  }
+
+  // 卡片上的小 icon chip：只用已經有的真實結構性欄位，沒有資料就不生成，不硬湊三格
+  function statChips(comp){
+    var chips = [];
+    if (comp.marginPct != null) chips.push({label:"毛利 " + comp.marginPct + "%", cls:"chip-blue"});
+    if (comp.broadAiPlatform) chips.push({label:"跨層 AI 平台", cls:"chip-blue"});
+    if (comp.geoLive) chips.push({label:"GEO 已上線", cls:"chip-green"});
+    if (comp.agentApiLive) chips.push({label:"Agent API", cls:"chip-green"});
+    if (comp.japanScaled) chips.push({label:"日本規模化", cls:"chip-green"});
+    return chips;
+  }
+
+  function signalNode(sig){
+    var c = CAT[sig.cat] || CAT.other;
+    var wrap = document.createElement("div");
+    wrap.className = "signal";
+    wrap.dataset.cat = sig.cat;
+    var da = daysAgo(sig.date);
+    wrap.dataset.days = da === null ? "" : da;
+
+    var meta = document.createElement("div");
+    meta.className = "signal-meta cat-" + c.cls;
+    var date = document.createElement("span");
+    date.className = "date mono";
+    date.textContent = sig.date;
+    var dot = document.createElement("span");
+    dot.className = "dot";
+    var catLabel = document.createElement("span");
+    catLabel.className = "cat-label";
+    catLabel.textContent = c.label;
+    meta.appendChild(date); meta.appendChild(dot); meta.appendChild(catLabel);
+    wrap.appendChild(meta);
+
+    var title = document.createElement("div");
+    title.className = "headline";
+    if (sig.url) {
+      var a = document.createElement("a");
+      a.href = sig.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+      a.textContent = sig.title;
+      title.appendChild(a);
+    } else {
+      title.textContent = sig.title;
+    }
+    wrap.appendChild(title);
+
+    if (sig.note) {
+      var insight = document.createElement("div");
+      insight.className = "insight";
+      var body = document.createElement("div");
+      body.className = "body";
+      var label = document.createElement("span");
+      label.className = "label";
+      label.textContent = "對 iKala 的啟示";
+      var p = document.createElement("p");
+      p.textContent = sig.note;
+      body.appendChild(label); body.appendChild(p);
+      var arrow = document.createElement("span");
+      arrow.className = "arrow";
+      arrow.setAttribute("aria-hidden", "true");
+      arrow.textContent = "→";
+      insight.appendChild(body); insight.appendChild(arrow);
+      wrap.appendChild(insight);
+    }
+    return wrap;
+  }
+
+  function cardNode(comp, signals, idx){
+    var card = document.createElement("div");
+    card.className = "card";
+    card.dataset.grp = comp.grp;
+
+    var top = document.createElement("div");
+    top.className = "card-top";
+    var avatar = document.createElement("div");
+    avatar.className = "avatar";
+    avatar.style.background = avatarColor(idx);
+    avatar.textContent = initialsOf(comp.name);
+    var titleWrap = document.createElement("div");
+    titleWrap.className = "card-title";
+    var h3 = document.createElement("h3");
+    h3.textContent = comp.name;
+    var tag = document.createElement("span");
+    tag.className = "tag " + comp.grp;
+    tag.textContent = comp.grp === "service" ? "AI SERVICE" : "AI MARKETING";
+    titleWrap.appendChild(h3); titleWrap.appendChild(tag);
+    top.appendChild(avatar); top.appendChild(titleWrap);
+    card.appendChild(top);
+
+    var pos = document.createElement("div");
+    pos.className = "pos";
+    pos.textContent = comp.pos;
+    card.appendChild(pos);
+
+    var chips = statChips(comp);
+    if (chips.length) {
+      var chipsWrap = document.createElement("div");
+      chipsWrap.className = "chips";
+      chips.forEach(function(ch){
+        var el = document.createElement("span");
+        el.className = "chip-stat " + ch.cls;
+        el.textContent = ch.label;
+        chipsWrap.appendChild(el);
+      });
+      card.appendChild(chipsWrap);
+    }
+
+    var metric = document.createElement("div");
+    metric.className = "metric";
+    metric.textContent = comp.metric;
+    card.appendChild(metric);
+
+    var mine = signals.filter(function(s){ return s.company === comp.id; })
+      .sort(function(a,b){ return a.date < b.date ? 1 : -1; });
+
+    // 搜尋比對用的文字池：公司名／定位／metric／每則訊號標題與備註，跟目前時間或分類篩選無關
+    card.dataset.search = [comp.name, comp.pos, comp.metric]
+      .concat(mine.map(function(s){ return s.title + " " + (s.note || ""); }))
+      .join(" ").toLowerCase();
+
+    var list = document.createElement("div");
+    list.className = "signal-list";
+    mine.forEach(function(s){ list.appendChild(signalNode(s)); });
+    var empty = document.createElement("div");
+    empty.className = "signal-empty hidden";
+    empty.textContent = "此區間無新訊號";
+    list.appendChild(empty);
+    card.appendChild(list);
+
+    return card;
+  }
+
+  var activeGrp = "all";
+  var activeCats = new Set(Object.keys(CAT));
+  var activeRange = "90"; // "7" | "30" | "90" | "180" — 新聞最遠只回溯半年，180 天是上限，不再提供「全部」
+  var activeSearch = "";
+  var RANGE_LABEL = {7:"近 7 天", 30:"近 30 天", 90:"近 90 天", 180:"近半年"};
+
+  function rangeDaysValue(){
+    return Number(activeRange);
+  }
+
+  function applyFilters(){
+    var maxDays = rangeDaysValue();
+    document.querySelectorAll(".card").forEach(function(card){
+      var grpOk = activeGrp === "all" || card.dataset.grp === activeGrp;
+      var searchOk = !activeSearch || (card.dataset.search || "").indexOf(activeSearch) !== -1;
+      var anyCatVisible = false;
+      card.querySelectorAll(".signal").forEach(function(sig){
+        var days = sig.dataset.days === "" ? null : Number(sig.dataset.days);
+        var withinRange = days === null ? true : days <= maxDays;
+        var show = activeCats.has(sig.dataset.cat) && withinRange;
+        sig.classList.toggle("hidden", !show);
+        if (show) anyCatVisible = true;
+      });
+      // 卡片依分組跟搜尋隱藏；範圍／分類篩選讓卡片留著，改顯示「此區間無新訊號」，
+      // 避免公司基本定位與 key metric（非時間性資訊）被連帶藏起來。
+      card.classList.toggle("hidden", !grpOk || !searchOk);
+      var emptyEl = card.querySelector(".signal-empty");
+      if (emptyEl) emptyEl.classList.toggle("hidden", anyCatVisible);
+    });
+    renderRangeNote();
+    renderTrends();
+  }
+
+  function renderRangeNote(){
+    var el = document.getElementById("rangeNote");
+    if (!el) return;
+    var rangeText = activeRange === "180" ? "近半年（180 天）" : "近 " + activeRange + " 天";
+    el.textContent = "只顯示" + rangeText + "的訊號（新聞最遠回溯半年）；日期精度到月／年的訊號以月初／1 月 1 日推算。";
+  }
+
+  function trendBarRow(label, count, max, colorVar){
+    var row = document.createElement("div");
+    row.className = "trend-bar-row";
+    var l = document.createElement("div");
+    l.className = "trend-bar-label";
+    l.textContent = label;
+    var track = document.createElement("div");
+    track.className = "trend-bar-track";
+    var fill = document.createElement("div");
+    fill.className = "trend-bar-fill";
+    fill.style.width = (max > 0 ? (count / max * 100) : 0) + "%";
+    fill.style.background = colorVar;
+    track.appendChild(fill);
+    var n = document.createElement("div");
+    n.className = "trend-bar-count mono";
+    n.textContent = count;
+    row.appendChild(l); row.appendChild(track); row.appendChild(n);
+    return row;
+  }
+
+  // Trends 分頁：依「服務領域＋時間範圍」篩選（不受分類／搜尋影響，這裡本來就是要看整體分布），
+  // 純粹統計 SIGNALS／COMPETITORS 既有資料，不做任何額外推論或編造數字
+  function renderTrends(){
+    var catContainer = document.getElementById("trendCatBars");
+    var compContainer = document.getElementById("trendCompanyBars");
+    if (!catContainer || !compContainer) return;
+    var maxDays = rangeDaysValue();
+    var relevantComps = currentCompetitors.filter(function(c){ return activeGrp === "all" || c.grp === activeGrp; });
+    var relevantIds = relevantComps.map(function(c){ return c.id; });
+    var relevantSignals = currentSignals.filter(function(s){
+      if (relevantIds.indexOf(s.company) === -1) return false;
+      var da = daysAgo(s.date);
+      return da === null ? true : da <= maxDays;
+    });
+
+    catContainer.innerHTML = "";
+    if (!relevantSignals.length) {
+      var e1 = document.createElement("div");
+      e1.className = "trend-empty";
+      e1.textContent = "目前條件下沒有訊號。";
+      catContainer.appendChild(e1);
+    } else {
+      var catCounts = {};
+      Object.keys(CAT).forEach(function(k){ catCounts[k] = 0; });
+      relevantSignals.forEach(function(s){ if (catCounts[s.cat] !== undefined) catCounts[s.cat]++; });
+      var maxCat = Math.max.apply(null, Object.keys(catCounts).map(function(k){ return catCounts[k]; }));
+      Object.keys(CAT).forEach(function(k){
+        catContainer.appendChild(trendBarRow(CAT[k].label, catCounts[k], maxCat, "var(--sig-" + CAT[k].cls + ")"));
+      });
+    }
+
+    compContainer.innerHTML = "";
+    var compCounts = relevantComps.map(function(c){
+      return {
+        name: c.name.split(/[ ·．]/)[0],
+        count: relevantSignals.filter(function(s){ return s.company === c.id; }).length
+      };
+    }).sort(function(a, b){ return b.count - a.count; });
+    if (!compCounts.length) {
+      var e2 = document.createElement("div");
+      e2.className = "trend-empty";
+      e2.textContent = "目前條件下沒有對手符合。";
+      compContainer.appendChild(e2);
+    } else {
+      var maxComp = Math.max.apply(null, compCounts.map(function(c){ return c.count; }));
+      compCounts.forEach(function(c){
+        compContainer.appendChild(trendBarRow(c.name, c.count, maxComp, "var(--accent)"));
+      });
+    }
+  }
+
+  function switchView(view){
+    var dash = document.getElementById("viewDashboard");
+    var trends = document.getElementById("viewTrends");
+    if (dash) dash.hidden = view !== "dashboard";
+    if (trends) trends.hidden = view !== "trends";
+    document.querySelectorAll(".nav-tab").forEach(function(btn){
+      btn.classList.toggle("active", btn.dataset.view === view);
+    });
+    if (view === "trends") renderTrends();
+  }
+
+  function buildNavTabs(){
+    document.querySelectorAll(".nav-tab").forEach(function(btn){
+      btn.addEventListener("click", function(){ switchView(btn.dataset.view); });
+    });
+  }
+
+  function buildFilterBar(){
+    document.querySelectorAll("#grpFilters button").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        activeGrp = btn.dataset.grp;
+        document.querySelectorAll("#grpFilters button").forEach(function(b){
+          b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+        });
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll(".filters [data-range]").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        activeRange = btn.dataset.range;
+        document.querySelectorAll(".filters [data-range]").forEach(function(b){
+          b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+        });
+        refreshKpis();
+        applyFilters();
+      });
+    });
+
+    var catBar = document.getElementById("catFilters");
+    Object.keys(CAT).forEach(function(key){
+      var c = CAT[key];
+      var btn = document.createElement("button");
+      btn.className = "pill";
+      btn.dataset.cat = key;
+      btn.setAttribute("aria-pressed", "true");
+      var sw = document.createElement("span");
+      sw.className = "sw";
+      sw.style.background = "var(--sig-" + c.cls + ")";
+      btn.appendChild(sw);
+      btn.appendChild(document.createTextNode(c.label));
+      btn.addEventListener("click", function(){
+        if (activeCats.has(key)) { activeCats.delete(key); btn.setAttribute("aria-pressed","false"); }
+        else { activeCats.add(key); btn.setAttribute("aria-pressed","true"); }
+        applyFilters();
+      });
+      catBar.appendChild(btn);
+    });
+
+    var searchEl = document.getElementById("searchInput");
+    if (searchEl) {
+      searchEl.addEventListener("input", function(){
+        activeSearch = searchEl.value.trim().toLowerCase();
+        applyFilters();
+      });
+    }
+  }
+
+  var currentCompetitors = [];
+  var currentSignals = [];
+
+  function refreshKpis(){
+    var serviceComps = currentCompetitors.filter(function(c){ return c.grp === "service"; });
+    var marketingComps = currentCompetitors.filter(function(c){ return c.grp === "marketing"; });
+    var rangeDays = rangeDaysValue();
+    var rangeLabel = RANGE_LABEL[activeRange] || (activeRange + " 天");
+    renderKpis("service", serviceComps, currentSignals, document.getElementById("kpiService"), rangeDays, rangeLabel);
+    renderKpis("marketing", marketingComps, currentSignals, document.getElementById("kpiMarketing"), rangeDays, rangeLabel);
+  }
+
+  function render(competitors, signals, asOfLabel){
+    currentCompetitors = competitors;
+    currentSignals = signals;
+    document.getElementById("asOf").textContent = asOfLabel;
+    renderStats(competitors, signals);
+
+    var gridService = document.getElementById("gridService");
+    var gridMarketing = document.getElementById("gridMarketing");
+    gridService.innerHTML = ""; gridMarketing.innerHTML = "";
+
+    competitors.forEach(function(comp, idx){
+      var card = cardNode(comp, signals, idx);
+      (comp.grp === "service" ? gridService : gridMarketing).appendChild(card);
+    });
+
+    refreshKpis();
+    applyFilters();
+  }
+
+  // ---- 報告：跟 dashboard 分開的獨立排版，PDF 列印跟 HTML 匯出共用同一個產生函式 ----
+  function todayStamp(){
+    var d = new Date();
+    return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  }
+
+  function currentFilterSummary(){
+    var grpLabel = activeGrp === "all" ? "全部" : (activeGrp === "service" ? "AI Service" : "AI Marketing");
+    var rangeLabel = RANGE_LABEL[activeRange] || (activeRange + " 天");
+    var allCatKeys = Object.keys(CAT);
+    var catLabels = allCatKeys.filter(function(k){ return activeCats.has(k); }).map(function(k){ return CAT[k].label; });
+    var catText = catLabels.length === allCatKeys.length ? "全部分類" : (catLabels.length ? catLabels.join("、") : "（已全部關閉）");
+    var searchText = activeSearch ? "　｜　搜尋：「" + activeSearch + "」" : "";
+    return "分組：" + grpLabel + "　｜　範圍：" + rangeLabel + "　｜　分類：" + catText + searchText;
+  }
+
+  // 依目前實際套用的篩選（分組＋搜尋）挑出要放進報告的公司
+  function reportCompanies(){
+    return currentCompetitors.filter(function(c){
+      if (activeGrp !== "all" && c.grp !== activeGrp) return false;
+      if (activeSearch) {
+        var compBlob = (c.name + " " + c.pos + " " + c.metric).toLowerCase();
+        var sigMatch = currentSignals.some(function(s){
+          return s.company === c.id && (s.title + " " + (s.note || "")).toLowerCase().indexOf(activeSearch) !== -1;
+        });
+        if (compBlob.indexOf(activeSearch) === -1 && !sigMatch) return false;
+      }
+      return true;
+    });
+  }
+
+  // 某家公司依目前的時間範圍與分類篩選，實際要列進報告的訊號
+  function reportSignalsFor(compId){
+    var maxDays = rangeDaysValue();
+    return currentSignals.filter(function(s){
+      if (s.company !== compId) return false;
+      if (!activeCats.has(s.cat)) return false;
+      var da = daysAgo(s.date);
+      return da === null ? true : da <= maxDays;
+    }).sort(function(a, b){ return a.date < b.date ? 1 : -1; });
+  }
+
+  // 分類的固定印刷色（跟 dashboard 的 --sig-* 是同一組色，但報告是固定淺色底文件，不跟著深色模式走，直接寫死）
+  var CAT_HEX = {lead:"#B3261E", cap:"#6941C6", exp:"#15803D", prod:"#B45309", partner:"#0E7C86", other:"#52606D"};
+
+  // 報告用的 icon，跟 dashboard stat card／filter 用的是同一組 feather-style svg，維持視覺一致
+  var ICON_USERS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M17 3.13a4 4 0 0 1 0 7.75"/></svg>';
+  var ICON_DOC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>';
+
+  // 報告裡用的公司識別色，跟 dashboard 卡片大頭貼同一套色盤，兩邊看到的是同一家公司
+  function reportCompanyColor(comp){
+    var idx = currentCompetitors.indexOf(comp);
+    return avatarColor(idx < 0 ? 0 : idx);
+  }
+
+  function reportSignalRow(comp, s){
+    var c = CAT[s.cat] || CAT.other;
+    var hex = CAT_HEX[s.cat] || CAT_HEX.other;
+    var headline = s.url
+      ? '<a href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(s.title) + '</a>'
+      : escapeHtml(s.title);
+    var insight = s.note ? '<b>對 iKala：</b>' + escapeHtml(s.note) : '<span class="report-empty-note">—</span>';
+    return '<tr>' +
+      '<td class="col-company"><span class="report-company-dot" style="background:' + reportCompanyColor(comp) + '"></span>' +
+        escapeHtml(comp.name.split(/[ ·．]/)[0]) + '</td>' +
+      '<td class="col-date"><span class="report-date">' + escapeHtml(s.date) + '</span></td>' +
+      '<td class="col-cat"><span class="report-cat"><span class="dot" style="background:' + hex + '"></span>' + escapeHtml(c.label) + '</span></td>' +
+      '<td class="col-headline report-headline">' + headline + '</td>' +
+      '<td class="col-insight report-insight">' + insight + '</td>' +
+    '</tr>';
+  }
+
+  // 近期動態：不用 rowspan、不分公司分組，一則訊號一列、跨公司依日期新到舊排，每列高度一致，密度最高
+  function reportSignalsTableHtml(list){
+    var rows = [];
+    var quiet = [];
+    list.forEach(function(comp){
+      var sigs = reportSignalsFor(comp.id);
+      if (!sigs.length) { quiet.push(comp.name.split(/[ ·．]/)[0]); return; }
+      sigs.forEach(function(s){ rows.push({comp: comp, sig: s}); });
+    });
+    rows.sort(function(a, b){ return a.sig.date < b.sig.date ? 1 : -1; });
+
+    var html = '';
+    if (rows.length) {
+      html += '<table class="report-table"><thead><tr>' +
+        '<th class="col-company">對手</th><th class="col-date">日期</th><th class="col-cat">分類</th>' +
+        '<th class="col-headline">動態</th><th class="col-insight">對 iKala 的意義</th>' +
+        '</tr></thead><tbody>' + rows.map(function(r){ return reportSignalRow(r.comp, r.sig); }).join('') + '</tbody></table>';
+    } else {
+      html += '<p class="report-no-signals">此區間無符合的訊號。</p>';
+    }
+    if (quiet.length) html += '<p class="report-no-signals">此區間無新訊號：' + escapeHtml(quiet.join('、')) + '</p>';
+    return html;
+  }
+
+  function reportSectionHtml(title, list){
+    if (!list.length) return '';
+    var html = '<div class="report-section-h">' + escapeHtml(title) + '　·　' + list.length + ' 家</div>';
+    html += reportSignalsTableHtml(list);
+    return html;
+  }
+
+  function buildReportHtml(){
+    var comps = reportCompanies();
+    var svc = comps.filter(function(c){ return c.grp === "service"; });
+    var mkt = comps.filter(function(c){ return c.grp === "marketing"; });
+    var totalSignals = comps.reduce(function(sum, c){ return sum + reportSignalsFor(c.id).length; }, 0);
+    var genStamp = new Date().toLocaleString("zh-TW", {hour12: false});
+    var asOfText = (document.getElementById("asOf") || {}).textContent || "—";
+
+    var html = '<div class="report-masthead">' +
+      '<div class="report-brand"><span class="report-brand-mark">iKala</span><span class="report-brand-line">Empower Your Business with AI</span></div>' +
+      '<div class="report-title">競品雷達情報報告</div>' +
+      '<div class="report-subtitle">Competitive Intelligence Report</div>' +
+      '<div class="report-meta">' +
+        '<span><b>產出時間</b>　' + escapeHtml(genStamp) + '</span>' +
+        '<span><b>資料基準</b>　' + escapeHtml(asOfText) + '</span>' +
+        '<span><b>篩選條件</b>　' + escapeHtml(currentFilterSummary()) + '</span>' +
+      '</div>' +
+    '</div>';
+
+    html += '<div class="report-stats">' +
+      '<div class="report-stat"><div class="icon">' + ICON_USERS + '</div><div><div class="n">' + comps.length + '</div><div class="l">家競爭對手 Competitors Monitored</div></div></div>' +
+      '<div class="report-stat"><div class="icon">' + ICON_DOC + '</div><div><div class="n">' + totalSignals + '</div><div class="l">則市場訊號 Signals Identified</div></div></div>' +
+    '</div>';
+
+    html += reportSectionHtml('AI SERVICE', svc);
+    html += reportSectionHtml('AI MARKETING', mkt);
+    if (!comps.length) html += '<p class="report-empty-note">目前篩選條件下沒有符合的對手，請放寬篩選再匯出。</p>';
+
+    return html;
+  }
+
+  async function exportHtml(){
+    var reportBody = buildReportHtml();
+    var css = (document.querySelector("style") || {}).textContent || "";
+    var html = '<!doctype html>\n<html lang="zh-Hant"><head><meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>iKala 競品雷達情報報告 - ' + todayStamp() + '</title>' +
+      '<link rel="preconnect" href="https://fonts.googleapis.com">' +
+      '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
+      '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap">' +
+      '<style>' + css + '</style></head><body><div class="report">' + reportBody + '</div></body></html>';
+
+    var blob = new Blob([html], {type: "text/html;charset=utf-8"});
+    var filename = "ikala-competitor-radar-report-" + todayStamp() + ".html";
+
+    // 在 Claude Artifact 檢視器裡，純 <a download> 是被 sandbox 擋掉的（不會有任何反應），
+    // 要用平台的 downloads capability 才能真的跳出存檔；靜態部署（Vercel，沒有 window.claude）
+    // 才走瀏覽器原生下載。
+    if (window.claude && typeof window.claude.use === "function") {
+      try {
+        var downloads = await window.claude.use("downloads");
+        if (downloads) {
+          await downloads.save({filename: filename, data: blob});
+          return;
+        }
+      } catch (e) {
+        if (e && e.code === "declined") return; // 使用者自己取消，不用退回瀏覽器下載
+        // 其他錯誤（例如這個 view 不支援）才往下退回 <a download>
+      }
+    }
+
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+  }
+
+  function exportPdf(){
+    var root = document.getElementById("reportRoot");
+    if (!root) return;
+    root.innerHTML = buildReportHtml();
+    document.body.classList.add("printing-report");
+    function cleanup(){
+      document.body.classList.remove("printing-report");
+      window.removeEventListener("afterprint", cleanup);
+    }
+    window.addEventListener("afterprint", cleanup);
+    window.print();
+  }
+
+  function buildExportBar(){
+    var htmlBtn = document.getElementById("exportHtmlBtn");
+    var pdfBtn = document.getElementById("exportPdfBtn");
+    if (htmlBtn) htmlBtn.addEventListener("click", exportHtml);
+    if (pdfBtn) pdfBtn.addEventListener("click", exportPdf);
+  }
+
+  buildFilterBar();
+  buildExportBar();
+  buildNavTabs();
+
+  // data.json 由每日排程直接 commit 更新（不經過 Claude Artifact，也就不會卡在那個權限確認）。
+  // Claude Artifact 檢視器的 CSP 會擋掉這個 fetch，抓不到就退回內嵌快照，行為不變。
+  function loadInitialData(){
+    return fetch("data.json", {cache: "no-store"})
+      .then(function(resp){ return resp.ok ? resp.json() : null; })
+      .then(function(json){
+        if (json && Array.isArray(json.competitors) && Array.isArray(json.signals)) return json;
+        return null;
+      })
+      .catch(function(){ return null; });
+  }
+
+  loadInitialData().then(function(json){
+    if (json) {
+      render(json.competitors, json.signals, (json.lastUpdatedLabel || json.lastUpdated || "—"));
+    } else {
+      render(DEFAULT_COMPETITORS, DEFAULT_SIGNALS, "2026-09-15（人工查證快照）");
+    }
+  });
+
+  // ---- live db overlay: replaces the snapshot above when the runtime is available ----
+  (async function(){
+    var noteEl = document.getElementById("liveNote");
+    if (!window.claude || typeof window.claude.use !== "function") {
+      // 靜態部署（例如 Vercel）沒有 window.claude，直接留用內嵌快照，不嘗試連線
+      if (noteEl) noteEl.textContent = "◌ 靜態部署版本，未連接即時資料庫，顯示內嵌快照。";
+      return;
+    }
+    var db = await window.claude.use("db");
+    if (!db) {
+      noteEl.textContent = "◌ 此檢視未連上即時資料庫，顯示的是上次發布時內嵌的快照。";
+      return;
+    }
+    try {
+      var compSnap = await db.collection("competitors").get();
+      var sigSnap = await db.collection("signals").orderBy("date", "desc").limit(500).get();
+
+      var liveCompetitors = compSnap.docs.map(function(d){ return d.data(); });
+      var liveSignals = sigSnap.docs.map(function(d){ return d.data(); });
+
+      if (liveCompetitors.length && liveSignals.length) {
+        var latest = liveSignals.reduce(function(m, s){ return s.date > m ? s.date : m; }, "0000-00-00");
+        render(liveCompetitors, liveSignals, latest + "（即時資料庫）");
+        noteEl.textContent = "● 已連上即時資料庫，" + liveSignals.length + " 則訊號、人工查證後手動更新。";
+      } else {
+        noteEl.textContent = "◌ 即時資料庫目前是空的，顯示內嵌快照，等下一次人工查證寫入。";
+      }
+
+      db.collection("signals").orderBy("date", "desc").limit(500).onSnapshot(function(snap){
+        var sigs = snap.docs.map(function(d){ return d.data(); });
+        if (!sigs.length) return;
+        db.collection("competitors").get().then(function(cs){
+          var comps = cs.docs.map(function(d){ return d.data(); });
+          if (!comps.length) comps = currentCompetitors.length ? currentCompetitors : DEFAULT_COMPETITORS;
+          var latest = sigs.reduce(function(m, s){ return s.date > m ? s.date : m; }, "0000-00-00");
+          render(comps, sigs, latest + "（即時資料庫）");
+          noteEl.textContent = "● 已連上即時資料庫，" + sigs.length + " 則訊號、人工查證後手動更新。";
+        });
+      }, function(){
+        noteEl.textContent = "◌ 即時連線中斷，顯示最後一次成功讀到的資料。";
+      });
+    } catch (e) {
+      noteEl.textContent = "◌ 讀取即時資料庫失敗，顯示內嵌快照。";
+    }
+  })();
+})();
+</script>
