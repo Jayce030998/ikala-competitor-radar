@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-15",
-  "lastUpdatedLabel": "2026-09-15（人工查證快照）",
+  "lastUpdated": "2026-09-18",
+  "lastUpdatedLabel": "2026-09-18（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -314,6 +314,30 @@
       "title": "Q2 營收 129 億日圓再創新高（+24.6% YoY），毛利率首度突破 60.1%",
       "url": "https://www.digitimes.com/news/a20260814PD202/revenue-appier-outlook-business-development.html",
       "note": "毛利率連兩季創高，證明 agentic AI 飛輪在財務上站得住腳。"
+    },
+    {
+      "company": "systex",
+      "date": "2026-08-25",
+      "cat": "exp",
+      "title": "精誠資訊攜手日本伊藤忠科技解決方案（CTC）成立合資公司「CTC-SYSTEX株式會社」，落腳福岡",
+      "url": "https://tw.systex.com/nr_260825/",
+      "note": "從 2 月的策略聯盟宣示，進一步落地成立在日合資公司、專責協助台灣企業赴日部署 IT，跟 iKala Japan 靠既有三個通路夥伴綁定的打法屬同一層級競爭，且對手已經跑得更前面。"
+    },
+    {
+      "company": "app91",
+      "date": "2026-09-02",
+      "cat": "partner",
+      "title": "91APP 與 LINE 購物戰略結盟，領先業界推出「賺點助手」，品牌官網／APP 可直接發放 LINE POINTS",
+      "url": "https://91app.com/blog/91app-202609-lineshopping/",
+      "note": "試營運數據顯示新客轉換率大幅提升（首購人數年增 112.9%），91APP 用會員經濟與大型生態圈綁定強化電商護城河，跟 iKala Marketing 線想講的 agentic 行銷、通路整合敘事重疊，且對手已有具體導購轉換實證。"
+    },
+    {
+      "company": "appier",
+      "date": "2026-09-08",
+      "cat": "prod",
+      "title": "Appier 發表兩篇新研究，探討 LLM 自我認知能力局限與多語推理路由（Reasoning-Language Routing）",
+      "url": "https://prtimes.jp/main/html/rd/p/000000214.000025921.html",
+      "note": "用學術研究強化「以研究驅動 agentic AI」的技術可信度敘事，跟 iKala 想靠 TMMLU+ 建立繁中評測權威的路線是同一種打法，值得持續追蹤對手如何把研究成果轉化為產品賣點。"
     }
   ]
 }
