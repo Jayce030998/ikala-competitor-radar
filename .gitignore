@@ -2,3 +2,5 @@
 .DS_Store
 _check.js
 *.pyc
+.vercel
+.env*
