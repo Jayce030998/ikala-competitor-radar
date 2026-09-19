@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-18",
-  "lastUpdatedLabel": "2026-09-18（排程自動更新）",
+  "lastUpdated": "2026-09-19",
+  "lastUpdatedLabel": "2026-09-19（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -338,6 +338,78 @@
       "title": "Appier 發表兩篇新研究，探討 LLM 自我認知能力局限與多語推理路由（Reasoning-Language Routing）",
       "url": "https://prtimes.jp/main/html/rd/p/000000214.000025921.html",
       "note": "用學術研究強化「以研究驅動 agentic AI」的技術可信度敘事，跟 iKala 想靠 TMMLU+ 建立繁中評測權威的路線是同一種打法，值得持續追蹤對手如何把研究成果轉化為產品賣點。"
+    },
+    {
+      "company": "twsc",
+      "date": "2026-09-01",
+      "cat": "prod",
+      "title": "台智雲宣布全面升級 TWAI Cloud，從「AI 算力」轉型為「Full-Stack AI Cloud」，提出「從 Cloud Consumption 走向 AI Control」定位",
+      "url": "https://www.twcloud.ai/news/tw_260901",
+      "note": "官方論述用詞直接對標 iKala Nexus 的「企業 AI 控制塔」敘事，顯示台智雲不再只賣算力，正往模型與 Agent 治理層移動，是 AI Service 線上與 iKala 最正面交鋒的訊號。"
+    },
+    {
+      "company": "twsc",
+      "date": "2026-09-10",
+      "cat": "cap",
+      "title": "台智雲公告 2026 年 8 月合併營收 1.1 億元，年增 547.79%",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E5%8F%B0%E6%99%BA%E9%9B%B2-2026%E5%B9%B48%E6%9C%88%E5%90%88%E4%BD%B5%E7%87%9F%E6%94%B61-1%E5%84%84%E5%85%83-%E5%B9%B4%E5%A2%9E547-071339503.html",
+      "note": "營收年增逾 5 倍顯示台智雲算力代工、模型代工放量進入收成期，財務動能將強化其資本市場敘事，可對照 iKala AI Service 強調的具名客戶 ROI 與毛利率改善，比較誰的「AI 變現故事」更具說服力。"
+    },
+    {
+      "company": "systex",
+      "date": "2026-09-17",
+      "cat": "other",
+      "title": "公平會正式受理台灣大公開收購精誠案，進入審查程序，溢價擴大至 38%",
+      "url": "https://www.ctee.com.tw/news/20260917702080-430502",
+      "note": "台灣大整併精誠一旦過關，SYSTEX 的 ICT／AI 服務能量與客戶基礎將併入電信集團版圖，強化其交叉銷售與資金規模，是 iKala 在企業 AI Service 市場需要持續追蹤的產業結構性變化。"
+    },
+    {
+      "company": "app91",
+      "date": "2026-09-16",
+      "cat": "partner",
+      "title": "91APP 旗下美業科技品牌「客立樂 QLiEER」攜手台灣大哥大「大哥付你分期」，導入美業實體店家先享後付服務",
+      "url": "https://91app.com/blog/91app-202609-qlieer-taiwanmobile/",
+      "note": "91APP 持續往垂直產業（美業）與嵌入式金融擴張會員經營場景，展現其會員數據變現的廣度，跟 iKala Marketing 線想講的資料驅動、通路整合敘事屬同一層級，但對手已有具體場景落地。"
+    },
+    {
+      "company": "awoo",
+      "date": "2026-09-15",
+      "cat": "prod",
+      "title": "awoo GEO Suite 正式支援 MCP（Model Context Protocol），可用 Claude／ChatGPT／Gemini 以自然語言分析 AI 能見度數據",
+      "url": "https://prtimes.jp/main/html/rd/p/000000175.000050088.html",
+      "note": "awoo 把 GEO 能見度分析從「看報表」升級為「用自然語言問 AI」，等於將 GEO 數據包裝成 agentic 互動介面，直接對標 Kuroma 在 GEO／AI 能見度賽道的產品深度，且是在日本市場首發，值得持續追蹤其 agentic 化速度。"
+    },
+    {
+      "company": "keypo",
+      "date": "2026-09-03",
+      "cat": "lead",
+      "title": "大數據企業級知識 AI 代理平台《KEYLM》勇奪 WITSA Global AI Awards「AI 創業家精神獎」",
+      "url": "https://www.bnext.com.tw/article/92136/big-data_2026_09",
+      "note": "Keypo 的 AI Agent／知識代理能力（KEYLM）已獲國際獎項背書，技術可信度與能見度提升，需留意其是否會把這套知識代理能力延伸回品牌輿情場景，對 Kuroma、Datahub+MCP 構成潛在的能力對標壓力。"
+    },
+    {
+      "company": "keypo",
+      "date": "2026-09-03",
+      "cat": "prod",
+      "title": "大數據新服務模式「人機共智洞察助手 AI Insight Partner」獲首屆臺灣 AI 卓越獎",
+      "url": "https://www.bnext.com.tw/article/92136/big-data_2026_09",
+      "note": "「AI 負責分析初稿、專業分析師負責校正建議」的人機協作服務，等於把分析能力包裝成顧問式 AI Agent 去搶單，此種「AI+人力顧問」複合打法值得 iKala 規劃 Kolr／Kuroma 的人機協作定位與收費模式時參考比較。"
+    },
+    {
+      "company": "opview",
+      "date": "2026-09-14",
+      "cat": "prod",
+      "title": "意藍舉辦《AI Agent 驅動決策升級》年度大會，聚焦品牌 AI 工作流與市場情報 AI 決策實戰",
+      "url": "https://www.eland.com.tw/202609-seminar-as2/",
+      "note": "活動緊接在 Agent Tools API、AI WAVE SHOW 之後，屬於意藍向客戶做 agentic marketing 落地教育的下一步動作，與 iKala 規劃中的 Datahub+MCP 敘事高度重疊，是持續觀察的最高優先訊號。"
+    },
+    {
+      "company": "opview",
+      "date": "2026-09-15",
+      "cat": "other",
+      "title": "意藍公告 2026 年 8 月合併營收 1617.4 萬元，年減 4.41%",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E6%84%8F%E8%97%8D-2026%E5%B9%B48%E6%9C%88%E5%90%88%E4%BD%B5%E7%87%9F%E6%94%B61617-4%E8%90%AC%E5%85%83-%E5%B9%B4%E5%A2%9E-054302232.html",
+      "note": "傳統業務單月營收出現年減，顯示其在積極推廣 Agent Tools API 新產品線的同時，核心業務動能轉弱，可作為觀察意藍轉型節奏、以及其搶攻 agentic 行銷市場急迫性的財務面佐證。"
     }
   ]
 }
