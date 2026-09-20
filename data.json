@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-19",
-  "lastUpdatedLabel": "2026-09-19（排程自動更新）",
+  "lastUpdated": "2026-09-20",
+  "lastUpdatedLabel": "2026-09-20（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -410,6 +410,22 @@
       "title": "意藍公告 2026 年 8 月合併營收 1617.4 萬元，年減 4.41%",
       "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E6%84%8F%E8%97%8D-2026%E5%B9%B48%E6%9C%88%E5%90%88%E4%BD%B5%E7%87%9F%E6%94%B61617-4%E8%90%AC%E5%85%83-%E5%B9%B4%E5%A2%9E-054302232.html",
       "note": "傳統業務單月營收出現年減，顯示其在積極推廣 Agent Tools API 新產品線的同時，核心業務動能轉弱，可作為觀察意藍轉型節奏、以及其搶攻 agentic 行銷市場急迫性的財務面佐證。"
+    },
+    {
+      "company": "systex",
+      "date": "2026-09-08",
+      "cat": "lead",
+      "title": "精誠總座林隆奮首度揭露台灣大收購案 AI 綜效目標：資訊服務市占衝倍增、企業 IT 服務營收年複合成長上看逾 20%，喊出「從系統整合走向智慧整合」",
+      "url": "https://finance.technews.tw/2026/09/08/taiwan-mobile-systex-3/",
+      "note": "這是台灣大收購案首次具體揭露 AI 綜效的成長目標數字，若企業 IT 服務營收年複合成長真能上看 20%，代表精誠併入電信集團後將加速做大 AI 服務營收規模，是 iKala AI Service 在追求具名客戶 ROI 與毛利改善之外，需要正視的對手成長速度指標。"
+    },
+    {
+      "company": "ecloudvalley",
+      "date": "2026-09-15",
+      "cat": "cap",
+      "title": "伊雲谷公告 2026 年 8 月合併營收 11.87 億元，年增 20.28%，累計 1–8 月 86.43 億元",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E4%BC%8A%E9%9B%B2%E8%B0%B7-2026%E5%B9%B48%E6%9C%88%E5%90%88%E4%BD%B5%E7%87%9F%E6%94%B611-87%E5%84%84%E5%85%83-%E5%B9%B4%E5%A2%9E20-100329261.html",
+      "note": "單月營收年增逾兩成，緊接在 9/11 發布 Enterprise AI Portfolio 之後，顯示伊雲谷「先占領再擴張」策略（含日本、澳洲據點擴張）已開始反映在財務數字上，跟 iKala 想用具名客戶 ROI 講的變現故事互為對照組。"
     }
   ]
 }
