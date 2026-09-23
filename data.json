@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-22",
-  "lastUpdatedLabel": "2026-09-22（排程自動更新）",
+  "lastUpdated": "2026-09-23",
+  "lastUpdatedLabel": "2026-09-23（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -434,6 +434,14 @@
       "title": "博弘雲端公告 2026 年第 2 季財報，稅後純益 3,200 萬元年增 83.6%，營收年增 52.3%（含併購效益挹注）",
       "url": "https://www.ctee.com.tw/news/20260805700831-430201",
       "note": "早在拿下 OpenAI Select Partner、換上新任總經理陳仲儒之前，博弘 Q2 財報就已因併購效益發酵繳出獲利年增 83.6% 的成績單，顯示其多雲＋生態綁定策略已開始轉化為實質財務動能，是 iKala AI Service 想用「具名客戶 ROI、毛利率改善」講變現故事時，值得對照的競品財務基準。"
+    },
+    {
+      "company": "bohong",
+      "date": "2026-09-22",
+      "cat": "lead",
+      "title": "子公司宏庭科技董事長林秀穎請辭（9/29 生效），董事會改選博弘雲端代表葉偉琳接任，董事張嘉庭、陳韋瑄同步進駐",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8D%9A%E5%BC%98-%E6%9C%AC%E5%85%AC%E5%8F%B8%E4%BB%A3%E9%87%8D%E8%A6%81%E5%AD%90%E5%85%AC%E5%8F%B8%E5%AE%8F%E5%BA%AD%E7%A7%91%E6%8A%80-%E8%82%A1-%E5%85%AC%E5%8F%B8%E5%85%AC%E5%91%8A%E8%91%A3%E4%BA%8B%E9%95%B7%E7%95%B0%E5%8B%95-074900336.html",
+      "note": "繼 8 月總座換人、7 月拿下 OpenAI Select Partner 後，博弘進一步把自家人馬安插進子公司宏庭董事會，整併節奏明顯加快，多雲＋生態綁定的治理主導權正快速集中，值得留意其資源整合速度是否轉化為對 iKala AI Service 目標客群的實質競爭壓力。"
     }
   ]
 }
