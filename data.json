@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-25",
-  "lastUpdatedLabel": "2026-09-25（排程自動更新）",
+  "lastUpdated": "2026-09-26",
+  "lastUpdatedLabel": "2026-09-26（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -450,6 +450,22 @@
       "title": "台灣大收購精誠公開收購套利溢價收斂至 2.87%，市場認為交易高機率如期完成",
       "url": "https://ec.ltn.com.tw/article/breakingnews/5581456",
       "note": "相較於 09-08／09-17 已記錄的「公平會受理」進度，此則是價格面的最新驗證——套利價差從 8 月宣布時近 30% 大幅收斂到 2.87%，市場高度看好此案將在 10/6 截止前完成；一旦成真，SYSTEX 將併入台灣大電信＋雲＋AI 版圖，iKala 在對外溝通「非硬體、非電信集團出身、獨立 AI 原生」的差異化敘事時可引用此案作為最新素材。"
+    },
+    {
+      "company": "awoo",
+      "date": "2026-09-10",
+      "cat": "partner",
+      "title": "awoo 與日本 Storeeel 攜手，共同驗證直式短影音內容對生成式 AI 理解與引用的影響",
+      "url": "https://www.commercepick.com/archives/102478",
+      "note": "awoo 用既有的 GEO Suite 持續量測提及率、引用率變化，把 GEO 能見度驗證場域從純文字網頁內容延伸到直式短影音格式，在日本市場透過異業合作加深 GEO 技術護城河，是 Kuroma 切入 GEO／AI 能見度賽道時，除了 MCP 之外另一個要對標的產品化速度指標。"
+    },
+    {
+      "company": "opview",
+      "date": "2026-09-24",
+      "cat": "cap",
+      "title": "意藍股價連日觸及漲停（9/18、9/23、9/24 皆漲停），AI Agent 題材帶動買盤湧入",
+      "url": "https://www.ctee.com.tw/news/20260925700219-439901",
+      "note": "即使 8 月合併營收年減 4.41%，意藍股價仍因 Agent Tools API 打入企業 AI 決策場景的成長想像連日漲停，顯示資本市場願意用「故事先於財報」的方式提前給估值，這正是 iKala 想靠 Datahub＋MCP 敘事爭取 AI 原生公司估值時，可以參考觀察的對照案例。"
     }
   ]
 }
