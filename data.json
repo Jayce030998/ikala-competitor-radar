@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-04",
-  "lastUpdatedLabel": "2026-10-04（排程自動更新）",
+  "lastUpdated": "2026-10-05",
+  "lastUpdatedLabel": "2026-10-05（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -490,6 +490,14 @@
       "title": "台智雲啟用全新英文品牌「Taiwan AI Cloud」（原 Taiwan Web Service），同步啟動正式上市櫃計畫",
       "url": "https://news.cnyes.com/news/id/6245069",
       "note": "台智雲從 5 月登錄興櫃後再進一步，把品牌改名對齊「主權 AI」全球敘事並公開上市櫃時間表，等於用品牌重塑加速卡位國際主權 AI 基礎建設市場；這正是 iKala 想靠 Nexus／TMMLU+ 爭取的「AI 原生公司」資本市場定位，對手已把品牌與掛牌時程綁在一起加速推進。"
+    },
+    {
+      "company": "awoo",
+      "date": "2026-10",
+      "cat": "prod",
+      "title": "awoo GEO Suite 功能再升級，新增 Persona 受眾管理、Prompt Planner 提示詞規劃、品牌名稱別名與自訂標籤管理",
+      "url": "https://www.awoo.ai/zh-hant/blog/geo-suite-new-update-2026-10/",
+      "note": "繼 9/15 推出 MCP 自然語言分析後，awoo 這次補的是 GEO 操作面的策略指揮中心（受眾、提示詞、品牌別名、競品自動偵測），把 GEO Suite 從「量測工具」往「可操作的行銷工作台」推進，持續拉大跟 Kuroma 在 GEO／AI 能見度賽道上的產品完整度差距，且仍以日本市場為首發場域。"
     }
   ]
 }
