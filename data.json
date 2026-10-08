@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-05",
-  "lastUpdatedLabel": "2026-10-05（排程自動更新）",
+  "lastUpdated": "2026-10-08",
+  "lastUpdatedLabel": "2026-10-08（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -498,6 +498,14 @@
       "title": "awoo GEO Suite 功能再升級，新增 Persona 受眾管理、Prompt Planner 提示詞規劃、品牌名稱別名與自訂標籤管理",
       "url": "https://www.awoo.ai/zh-hant/blog/geo-suite-new-update-2026-10/",
       "note": "繼 9/15 推出 MCP 自然語言分析後，awoo 這次補的是 GEO 操作面的策略指揮中心（受眾、提示詞、品牌別名、競品自動偵測），把 GEO Suite 從「量測工具」往「可操作的行銷工作台」推進，持續拉大跟 Kuroma 在 GEO／AI 能見度賽道上的產品完整度差距，且仍以日本市場為首發場域。"
+    },
+    {
+      "company": "bohong",
+      "date": "2026-09-30",
+      "cat": "lead",
+      "title": "博弘代子公司宏庭科技公告董事會一致推舉陳仲儒擔任董事長，完成繼 9/7 任博弘總經理、9/21 任宏庭法人董事代表人後的三連任",
+      "url": "https://tw.stock.yahoo.com/news/%E5%8D%9A%E5%BC%98-%E6%9C%AC%E5%85%AC%E5%8F%B8%E4%BB%A3%E9%87%8D%E8%A6%81%E5%AD%90%E5%85%AC%E5%8F%B8%E5%AE%8F%E5%BA%AD%E7%A7%91%E6%8A%80-%E8%82%A1-%E5%85%AC%E5%8F%B8%E5%85%AC%E5%91%8A%E8%91%A3%E4%BA%8B%E6%9C%83-%E8%87%B4%E6%8E%A8%E8%88%89%E9%99%B3%E4%BB%B2%E5%84%92%E5%85%88%E7%94%9F%E6%93%94%E4%BB%BB%E8%91%A3%E4%BA%8B%E9%95%B7-083400560.html",
+      "note": "接續 9/22 林秀穎請辭、董事會改派人馬的紀錄，陳仲儒在同一個月內完成博弘總經理、宏庭法人董事代表人、宏庭董事長三個職位的佈局，顯示博弘對子公司宏庭的治理主導權集中速度比先前記錄的更快，持續強化多雲＋OpenAI 生態綁定對 iKala AI Service 目標客群的資源整合壓力。"
     }
   ]
 }
