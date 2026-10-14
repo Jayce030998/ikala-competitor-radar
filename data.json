@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-11",
-  "lastUpdatedLabel": "2026-10-11（排程自動更新）",
+  "lastUpdated": "2026-10-14",
+  "lastUpdatedLabel": "2026-10-14（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -522,6 +522,22 @@
       "title": "awoo AI 正式導入日本大型二手連鎖品牌「Second Street（セカンドストリート）」，用 AI 讀解商品圖像並轉譯為標籤",
       "url": "https://prtimes.jp/main/html/rd/p/000000176.000050088.html",
       "note": "awoo 持續在日本市場簽下具規模的連鎖零售客戶，同時曝光新功能「awoo Description Writer」AI 商品描述自動生成，顯示其日本電商 AI 工具已從 GEO 能見度延伸到商品資料整備，持續拉大其在日本市場落地案例數與產品廣度上領先 Kuroma 的差距。"
+    },
+    {
+      "company": "ecloudvalley",
+      "date": "2026-10-10",
+      "cat": "cap",
+      "title": "伊雲谷公告 2026 年 9 月合併營收 11.32 億元，月減 4.66%、年增 6.15%，累計 1–9 月 97.74 億元（+3.99%）",
+      "url": "https://winvest.tw/News/Detail/96449",
+      "note": "9 月營收較 8 月略為降溫，顯示 9/11 發布 Enterprise AI Portfolio 後的單月成長動能尚未延續，可持續觀察其日本、澳洲據點擴張是否在第四季轉化為更明確的營收貢獻，作為 iKala AI Service 評估自身變現節奏的對照指標。"
+    },
+    {
+      "company": "opview",
+      "date": "2026-10-10",
+      "cat": "cap",
+      "title": "意藍公告 2026 年 9 月合併營收 2,408.2 萬元，月增 48.89%、年增 21.37%，累計 1–9 月 1.55 億元（+5.43%）",
+      "url": "https://winvest.tw/News/Detail/96492",
+      "note": "繼 8 月營收年減 4.41% 後單月大幅回升，時間點緊接在股價連日漲停、Agent Tools API 題材發酵之後，顯示意藍的 agentic marketing 轉型敘事已開始反映在實際營收數字上，是 iKala 規劃 Datahub+MCP 時最需要留意的競品變現驗證訊號。"
     }
   ]
 }
