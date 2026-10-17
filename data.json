@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-14",
-  "lastUpdatedLabel": "2026-10-14（排程自動更新）",
+  "lastUpdated": "2026-10-17",
+  "lastUpdatedLabel": "2026-10-17（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -538,6 +538,22 @@
       "title": "意藍公告 2026 年 9 月合併營收 2,408.2 萬元，月增 48.89%、年增 21.37%，累計 1–9 月 1.55 億元（+5.43%）",
       "url": "https://winvest.tw/News/Detail/96492",
       "note": "繼 8 月營收年減 4.41% 後單月大幅回升，時間點緊接在股價連日漲停、Agent Tools API 題材發酵之後，顯示意藍的 agentic marketing 轉型敘事已開始反映在實際營收數字上，是 iKala 規劃 Datahub+MCP 時最需要留意的競品變現驗證訊號。"
+    },
+    {
+      "company": "systex",
+      "date": "2026-10-08",
+      "cat": "cap",
+      "title": "精誠資訊公告 9 月合併營收 83.72 億元，月增 41.9%、年增 55.69%，創同期新高，主因認列政府機關大型專案收入",
+      "url": "https://cna.com.tw/news/afe/202610080386.aspx",
+      "note": "精誠靠認列公部門大型專案收入，單月合併營收衝上 83.72 億元、年增逾五成，顯示政府主權 AI／數位轉型標案仍是傳統 SI 的主力戰場；iKala AI Service 想用具名客戶 ROI 與毛利率改善卡位同一塊政府與企業市場，需要正視對手在標案規模上的量體差距。"
+    },
+    {
+      "company": "app91",
+      "date": "2026-10-12",
+      "cat": "cap",
+      "title": "91APP 公告 9 月合併營收 1.94 億元，年增 30.8%，創同期新高，第三季營收 5.59 億元同創單季新高",
+      "url": "https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-91app-ky-2026%E5%B9%B49%E6%9C%88%E5%90%88%E4%BD%B5%E7%87%9F%E6%94%B61-94%E5%84%84%E5%85%83-034316142.html",
+      "note": "91APP 把 9 月成長歸因於 99 購物節、中秋檔期、數位廣告業務擴張與新增大型零售餐飲客戶，顯示其 7 月發表的 AgentOne 企業 AI Agent 平台上線後，會員與廣告變現動能持續加速；iKala Marketing 線的 Kolr／Kuroma 想靠資料與 GEO 能見度切入零售品牌，91APP「電商系統＋廣告＋Agent」綁定打法的變現速度持續領先。"
     }
   ]
 }
