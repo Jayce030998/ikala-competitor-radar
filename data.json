@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-21",
-  "lastUpdatedLabel": "2026-10-21（排程自動更新）",
+  "lastUpdated": "2026-10-23",
+  "lastUpdatedLabel": "2026-10-23（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -562,6 +562,22 @@
       "title": "精誠資訊股價衝至 199 元創歷史新高，前三季合併營收 463.84 億元、年增 42.3%，公司喊出要把全球 IT 服務延伸至北美、南亞與東北亞市場",
       "url": "https://uanalyze.com.tw/articles/2443257146",
       "note": "精誠把成長動能明確點名為 AI 基礎建設、企業 AI 平台與全球 IT 服務三大方向，並把海外布局從既有的東南亞、日本再加碼北美與南亞，規模與地理覆蓋都遠超 iKala AI Service 現階段的量體；台灣大收購案尚未塵埃落定，精誠自身營運動能已先創高，進一步壓縮 iKala 想靠具名客戶 ROI 卡位同一市場的時間窗口。"
+    },
+    {
+      "company": "app91",
+      "date": "2026-10-16",
+      "cat": "other",
+      "title": "91APP 證實 Commerce Cloud 資料庫遭自動化攻擊，訂單資料外洩引發品牌客戶遭假冒「定期購」詐騙信風暴",
+      "url": "https://www.bnext.com.tw/article/92706/91app-database-attack-scam-emails",
+      "note": "91APP 的核心賣點是電商系統整合＋會員資料驅動商務，此次資料外洩直接打中其「資料可信賴」的護城河；iKala Marketing 線在對外溝通 Kolr／Kuroma 的資料治理與 AI 原生信任敘事時，可將此事件作為「資料安全即商業資產」的具體對照案例。"
+    },
+    {
+      "company": "app91",
+      "date": "2026-10-19",
+      "cat": "lead",
+      "title": "91APP 資料外洩延遲16天才對外揭露，數發部突襲行政檢查，董座何英圻公開致歉並承諾全額補償消費者詐騙財損",
+      "url": "https://www.knews.com.tw/news/9583519813F0E47ADBFC6AD67261E396",
+      "note": "事件發生（10/3 內部發現、重訊載明事實發生日 10/14）到對外公告（10/16）間隔逾十天，引發品牌客戶與主管機關質疑其危機通報治理能力；對 iKala 而言，這是觀察電商系統整合派在資安治理與客戶信任維護上的具體弱點案例，可作為日後 AI Service／Marketing 線強調「治理先於擴張」敘事時的素材。"
     }
   ]
 }
