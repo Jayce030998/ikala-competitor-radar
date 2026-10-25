@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-24",
-  "lastUpdatedLabel": "2026-10-24（排程自動更新）",
+  "lastUpdated": "2026-10-25",
+  "lastUpdatedLabel": "2026-10-25（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -578,6 +578,14 @@
       "title": "91APP 資料外洩延遲16天才對外揭露，數發部突襲行政檢查，董座何英圻公開致歉並承諾全額補償消費者詐騙財損",
       "url": "https://www.knews.com.tw/news/9583519813F0E47ADBFC6AD67261E396",
       "note": "事件發生（10/3 內部發現、重訊載明事實發生日 10/14）到對外公告（10/16）間隔逾十天，引發品牌客戶與主管機關質疑其危機通報治理能力；對 iKala 而言，這是觀察電商系統整合派在資安治理與客戶信任維護上的具體弱點案例，可作為日後 AI Service／Marketing 線強調「治理先於擴張」敘事時的素材。"
+    },
+    {
+      "company": "appier",
+      "date": "2026-10-22",
+      "cat": "prod",
+      "title": "Appier 提出「SCALE」五大原則，協助企業把 agentic AI 的導入轉化為可持續擴大的商業成果",
+      "url": "https://prtimes.jp/main/html/rd/p/000000216.000025921.html",
+      "note": "SCALE（Strategic／Calibrated／Adaptive／Learning／Efficient）延續 Appier 今年持續用研究論文與方法論包裝技術可信度的打法，敘事重點從「導入 AI」轉向「持續運營並擴大 AI 成果」；跟 iKala 想靠 TMMLU+ 建立繁中評測權威、用 Nexus 講企業 AI 治理框架屬同一種敘事競爭，值得持續追蹤對手如何把方法論轉化為可銷售的框架賣點。"
     }
   ]
 }
