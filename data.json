@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-11-07",
-  "lastUpdatedLabel": "2026-11-07（排程自動更新）",
+  "lastUpdated": "2026-11-08",
+  "lastUpdatedLabel": "2026-11-08（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -666,6 +666,14 @@
       "title": "資安事件延燒，91APP 股價連日破底，11/3 盤中跌至 45.6 元創歷史新低",
       "url": "https://uanalyze.com.tw/articles/9955458229",
       "note": "資料外洩事件已從品牌信任危機進一步反映到資本市場，股價創掛牌新低顯示投資人對其短期獲利動能轉趨保守；對 iKala Marketing 線而言，這是電商系統整合派「資料治理失靈」外溢到財務面代價的具體量化證據，可持續作為 Kolr／Kuroma 強調 AI 原生資料治理與信任敘事時的對照素材。"
+    },
+    {
+      "company": "app91",
+      "date": "2026-11",
+      "cat": "other",
+      "title": "91APP 補償登記管道因採用免費 Google 表單引發「資安零分」質疑，記者實測填寫時出現無共用權限的錯誤畫面",
+      "url": "https://www.nownews.com/news/6889265",
+      "note": "資料外洩善後進入補償登記階段，官方管道卻用免費陽春的 Google 表單、一度連受害者都無法填寫，暴露電商系統整合派在危機處理與資安治理執行力上的缺口；對 iKala Marketing 線而言，是強化 Kolr／Kuroma 資料治理與 AI 原生信任敘事時可持續引用的對照案例。"
     }
   ]
 }
