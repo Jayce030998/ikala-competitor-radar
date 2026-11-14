@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-11-13",
-  "lastUpdatedLabel": "2026-11-13（排程自動更新）",
+  "lastUpdated": "2026-11-14",
+  "lastUpdatedLabel": "2026-11-14（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -690,6 +690,22 @@
       "title": "Appier 任命 Sanam Lou 為全球行銷副總裁，並宣布將在倫敦設點以支援歐洲、中東與美國市場拓展",
       "url": "https://www.appier.com/en/press-media/appier-announces-new-executive-leadership-to-drive-global-expansion",
       "note": "Appier 持續用高階人才佈局強化「AI-native company／Agentic AI as a Service」的全球敘事，同步往 EMEA／美國擴張，顯示其 agentic marketing 敘事正從亞太複製到西方市場，是 iKala 想靠 Kuroma／TMMLU+ 建立區域權威時，觀察對手全球化速度的指標。"
+    },
+    {
+      "company": "keypo",
+      "date": "2026-11-07",
+      "cat": "lead",
+      "title": "KEYPO 大數據關鍵引擎榮獲第24屆金峰獎「十大傑出商品」，創辦人金志丞獲選「十大傑出創業楷模」",
+      "url": "https://www.ctee.com.tw/news/20261107700728-431208",
+      "note": "大數據持續用產品與創辦人雙重獎項堆疊「從輿情洞察走向企業AI應用」的技術可信度敘事，金志丞同時重申下一階段目標是 IPO 並拓展海外市場，跟 iKala 想靠 TMMLU+／具名客戶 ROI 建立權威敘事、以及海外（日本等）市場布局節奏可互為對照。"
+    },
+    {
+      "company": "appier",
+      "date": "2026-11",
+      "cat": "partner",
+      "title": "Appier 攜手韓國數位廣告代理商 Wisebirds，於 G-STAR 2026 期間在釜山設立「Agentic Growth Lounge」，服務遊戲業 UA／成長行銷團隊",
+      "url": "https://www.gamemeca.com/view.php?gid=1783233",
+      "note": "Appier 持續用區域廣告代理商夥伴關係把 agentic marketing 打法複製進新垂直（遊戲）與新市場（韓國），顯示其 agentic AI SaaS 飛輪正加速靠生態夥伴規模化擴張，是 iKala 想靠 Kuroma／TMMLU+ 建立權威敘事時，觀察對手「敘事＋夥伴」複製速度的參考案例。"
     }
   ]
 }
