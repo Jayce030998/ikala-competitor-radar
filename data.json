@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-11-14",
-  "lastUpdatedLabel": "2026-11-14（排程自動更新）",
+  "lastUpdated": "2026-11-15",
+  "lastUpdatedLabel": "2026-11-15（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -706,6 +706,22 @@
       "title": "Appier 攜手韓國數位廣告代理商 Wisebirds，於 G-STAR 2026 期間在釜山設立「Agentic Growth Lounge」，服務遊戲業 UA／成長行銷團隊",
       "url": "https://www.gamemeca.com/view.php?gid=1783233",
       "note": "Appier 持續用區域廣告代理商夥伴關係把 agentic marketing 打法複製進新垂直（遊戲）與新市場（韓國），顯示其 agentic AI SaaS 飛輪正加速靠生態夥伴規模化擴張，是 iKala 想靠 Kuroma／TMMLU+ 建立權威敘事時，觀察對手「敘事＋夥伴」複製速度的參考案例。"
+    },
+    {
+      "company": "bohong",
+      "date": "2026-11-03",
+      "cat": "partner",
+      "title": "博弘雲端自主研發 AICOM 雲智能管理平台，協助數位創意公司梅爵（MEJOR）達成跨雲帳務即時監控與異常預警，下半年聚焦跨雲治理與 AIOps 輔助洞察",
+      "url": "https://www.ctee.com.tw/news/20261103700623-431204",
+      "note": "AICOM 是博弘自家開發的雲端治理／AIOps工具，顯示博弘不只靠多雲代理生態綁定廣度取勝，也在往「跨雲治理＋智能洞察」的控制塔層移動，敘事位置與 iKala Nexus 企業AI控制塔高度重疊，值得持續追蹤其治理層產品化速度。"
+    },
+    {
+      "company": "app91",
+      "date": "2026-11-05",
+      "cat": "other",
+      "title": "91APP 個資外洩事件延燒，經濟部中小企業署籲管理顧問業者超前部署、補強個資檢核缺口",
+      "url": "https://ec.ltn.com.tw/article/breakingnews/5630225",
+      "note": "91APP 資安危機已促使主管機關把個資治理示警範圍擴大到管理顧問等其他產業，顯示資料外洩的信任成本正外溢成跨產業政策議題；對 iKala Marketing 線而言，這進一步墊高市場對「資料治理即商業資產」的重視程度，是 Kolr／Kuroma 強調 AI 原生資料治理敘事時可持續引用的大環境佐證。"
     }
   ]
 }
