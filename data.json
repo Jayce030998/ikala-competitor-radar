@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-11-18",
-  "lastUpdatedLabel": "2026-11-18（排程自動更新）",
+  "lastUpdated": "2026-11-19",
+  "lastUpdatedLabel": "2026-11-19（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -834,6 +834,38 @@
       "title": "91APP 資安事件被點名為台灣資安危機代表案例，與永豐銀行遭駭並列為「AI 攻擊時代」警訊，今年資安事件已達 118 件、較去年全年成長近六成",
       "url": "https://www.gvm.com.tw/article/134301",
       "note": "91APP 的個資外洩事件已從單一公司危機，被主流財經媒體延伸為台灣企業資安治理的代表性案例，與永豐銀行遭駭並列討論「AI 對 AI」攻防時代的系統性風險；對 iKala Marketing 線而言，這進一步墊高市場對「資料治理即商業資產」敘事的關注度與可信度，是 Kolr／Kuroma 強調 AI 原生資料治理時可引用的大環境佐證。"
+    },
+    {
+      "company": "twsc",
+      "date": "2026-10-12",
+      "cat": "prod",
+      "title": "台智雲福爾摩沙大模型（FFM）躋身數發部AIEC語言模型評測十強，打入五大產業應用場域",
+      "url": "https://uanalyze.com.tw/articles/5795556886",
+      "note": "台智雲用官方評測量化「繁體中文理解力＋台灣價值觀」指標，直接對標 iKala 想靠 TMMLU+ 建立的繁中評測權威敘事，且評測名次已擴及多個參數規模的模型，持續強化其主權 AI 模型的技術可信度，壓縮 iKala Nexus／TMMLU+ 爭取權威定位的時間窗口。"
+    },
+    {
+      "company": "largitdata",
+      "date": "2026-07-24",
+      "cat": "prod",
+      "title": "大數軟體推出《KEYLM》智慧幕僚解決方案，以自有BIG10模型＋NVIDIA DGX Spark鎖定政府機關決策支援",
+      "url": "https://www.ctee.com.tw/news/20260724701099-430503",
+      "note": "KEYLM主打地端部署、資料不出域、可溯源可稽核的政府AI知識治理場景，跟 iKala Nexus 想卡位的「企業AI控制塔」敘事重疊，顯示輿情分析業者也在往 agent 化知識治理層延伸，是 Kolr／Kuroma 之外 AI Marketing 線需要留意的垂直滲透方向。"
+    },
+    {
+      "company": "app91",
+      "date": "2026-11-14",
+      "cat": "other",
+      "title": "FBI正式發出警告，指ARTEX等AI自動化駭客工具遭濫用入侵，91APP與永豐銀行同被列為台灣「AI對AI攻防」代表案例",
+      "url": "https://www.bnext.com.tw/article/93034/91app-sinopac-ai-cyberattack-artex-defense",
+      "note": "繼先前91APP資料外洩與ARTEX工具痕跡的調查報導後，FBI正式發出警告函，把91APP事件與永豐銀行資安危機並列為AI自動化攻擊代表案例，顯示資安治理失靈的外溢效應已從單一公司擴大到跨產業、跨國警訊層級；對 iKala Marketing 線而言，是強化 Kolr／Kuroma「資料治理即商業資產」敘事時可持續引用的最新、層級更高的佐證。"
+    },
+    {
+      "company": "appier",
+      "date": "2026-11-12",
+      "cat": "prod",
+      "title": "Appier於首爾Mobidays「Marketer's Night」發表agentic AI對話平台「Botboni」，支援免開發客服問答與商品推薦",
+      "url": "https://www.venturesquare.net/en/1129081/",
+      "note": "Botboni是no-code、免開發的agentic對話式商務產品，可串接LINE／Facebook／Instagram／WhatsApp並依品牌知識庫自動回應與推薦商品，延續Appier把研究方法論轉化為可銷售工具的打法；跟 iKala 想靠 Nexus／Kuroma 做「AI原生可操作工具」的敘事方向相同，顯示Appier的agentic產品線持續往免開發、即插即用方向加深並往海外市場複製。"
     }
   ]
 }
