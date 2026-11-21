@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-11-19",
-  "lastUpdatedLabel": "2026-11-19（排程自動更新）",
+  "lastUpdated": "2026-11-21",
+  "lastUpdatedLabel": "2026-11-21（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -866,6 +866,30 @@
       "title": "Appier於首爾Mobidays「Marketer's Night」發表agentic AI對話平台「Botboni」，支援免開發客服問答與商品推薦",
       "url": "https://www.venturesquare.net/en/1129081/",
       "note": "Botboni是no-code、免開發的agentic對話式商務產品，可串接LINE／Facebook／Instagram／WhatsApp並依品牌知識庫自動回應與推薦商品，延續Appier把研究方法論轉化為可銷售工具的打法；跟 iKala 想靠 Nexus／Kuroma 做「AI原生可操作工具」的敘事方向相同，顯示Appier的agentic產品線持續往免開發、即插即用方向加深並往海外市場複製。"
+    },
+    {
+      "company": "apmic",
+      "date": "2026-11-18",
+      "cat": "partner",
+      "title": "施吉生技攜手APMIC開發「主權AI醫療大腦」，以台大醫院新竹分院智慧醫療中心為示範場域，目標拓展至30家醫學中心",
+      "url": "https://finance.technews.tw/2026/11/18/medical-ai-subscription/",
+      "note": "APMIC首次明確切入醫療這類高監管垂直產業，且綁定即將興櫃掛牌的施吉生技作為商業化夥伴，驗證其主權AI敘事正從政府／電信擴展到具名客戶案例，是 iKala 想用 Nexus／TMMLU+ 卡位「具名客戶 ROI」打法時需要正視的直接對手案例。"
+    },
+    {
+      "company": "bohong",
+      "date": "2026-11-18",
+      "cat": "cap",
+      "title": "博弘雲端公布2026年前三季營收41.51億元創新高（年增29.4%），營業利益正式轉正",
+      "url": "https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=775216",
+      "note": "繼Q3單季財報與AICOM治理平台案例後，博弘前三季營收與獲利結構同步改善，顯示其多雲代理＋AI專業服務雙引擎動能持續強化，是 iKala AI Service 想用具名客戶ROI與毛利率改善卡位同一市場時的財務面對照基準。"
+    },
+    {
+      "company": "bohong",
+      "date": "2026-11-18",
+      "cat": "prod",
+      "title": "博弘雲端20週年啟動「Next AI」企業轉型戰略，主打AI導入須「用得好、看得見、管得住」，預告12/8舉辦Next AI Day",
+      "url": "https://www.aiposthub.com/nextlink-6997-next-ai-enterprise-strategy/",
+      "note": "戰略訴求AI落地的治理與可視性（涵蓋AI Agent、Databricks、資安治理、MCP），敘事語言與 iKala Nexus「企業AI控制塔」高度重疊，建議持續追蹤12/8 Next AI Day公開內容，評估正面交鋒程度。"
     }
   ]
 }
