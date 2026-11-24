@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-11-21",
-  "lastUpdatedLabel": "2026-11-21（排程自動更新）",
+  "lastUpdated": "2026-11-24",
+  "lastUpdatedLabel": "2026-11-24（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -890,6 +890,14 @@
       "title": "博弘雲端20週年啟動「Next AI」企業轉型戰略，主打AI導入須「用得好、看得見、管得住」，預告12/8舉辦Next AI Day",
       "url": "https://www.aiposthub.com/nextlink-6997-next-ai-enterprise-strategy/",
       "note": "戰略訴求AI落地的治理與可視性（涵蓋AI Agent、Databricks、資安治理、MCP），敘事語言與 iKala Nexus「企業AI控制塔」高度重疊，建議持續追蹤12/8 Next AI Day公開內容，評估正面交鋒程度。"
+    },
+    {
+      "company": "opview",
+      "date": "2026-11-14",
+      "cat": "cap",
+      "title": "意藍資訊公布2026年第三季EPS達1元，季增45%、年增16%，獲利逆勢回升（累計前三季EPS 2.08元，年減2%）",
+      "url": "https://winvest.tw/News/Detail/99005",
+      "note": "10月合併營收雖年減1.62%（已記錄），但Q3單季獲利卻逆勢回升、創近期新高，顯示意藍在Agent Tools API題材帶動股價連日漲停之外，獲利面也開始跟上，進一步坐實其agentic marketing轉型故事有基本面支撐；是 iKala 規劃 Datahub+MCP 敘事時，評估「故事轉財報」驗證速度的對照指標。"
     }
   ]
 }
