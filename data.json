@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-11-26",
-  "lastUpdatedLabel": "2026-11-26（排程自動更新）",
+  "lastUpdated": "2026-11-28",
+  "lastUpdatedLabel": "2026-11-28（排程自動更新）",
   "competitors": [
     {
       "id": "apmic",
@@ -898,6 +898,14 @@
       "title": "意藍資訊公布2026年第三季EPS達1元，季增45%、年增16%，獲利逆勢回升（累計前三季EPS 2.08元，年減2%）",
       "url": "https://winvest.tw/News/Detail/99005",
       "note": "10月合併營收雖年減1.62%（已記錄），但Q3單季獲利卻逆勢回升、創近期新高，顯示意藍在Agent Tools API題材帶動股價連日漲停之外，獲利面也開始跟上，進一步坐實其agentic marketing轉型故事有基本面支撐；是 iKala 規劃 Datahub+MCP 敘事時，評估「故事轉財報」驗證速度的對照指標。"
+    },
+    {
+      "company": "ecloudvalley",
+      "date": "2026-11-25",
+      "cat": "cap",
+      "title": "伊雲谷自結10月轉盈為虧，單月淨損約200萬元，第三季稅後淨利年減逾86%，股價達注意交易標準",
+      "url": "https://money.udn.com/money/story/5710/9899267",
+      "note": "10月合併營收已記錄為年增15.8%，但這次自結數字顯示獲利卻由盈轉虧，公司歸因毛利率下滑；雲代理商「營收做大、毛利率撐不住」的結構性問題再添一例，正好對照 iKala AI Service 想靠具名客戶ROI與毛利率改善卡位的差異化敘事，也是日本合資擴張（11/13 C&R）尚未反映在獲利面的訊號。"
     }
   ]
 }
